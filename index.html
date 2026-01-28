@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Little Pearly Daily Lucky</title>
+</head>
+<body>
+<div class="lp-lucky-wrap">
+  <div class="lp-title">오늘의 행운을 뽑아보세요!!</div>
+
+  <!-- 보드(샘플) -->
+  <div class="lp-board">
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+  </div>
+
+  <div class="lp-help" id="lpHelp"></div>
+</div>
+
+<!-- 팝업 -->
+<div class="lp-modal" id="lpModal" aria-hidden="true">
+  <div class="lp-modal__dim" data-close></div>
+  <div class="lp-modal__card" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle">
+    <div class="lp-modal__title" id="lpModalTitle">짠! 축하드립니다!</div>
+    <div class="lp-modal__desc">
+      적립금 <b class="lp-modal__amount" id="lpModalAmount">0원</b> 당첨!
+    </div>
+    <div class="lp-modal__fineprint">
+      해당 적립금은 30일 이내에 사용 가능하며,<br/>
+      마이페이지에서 확인 가능합니다!
+    </div>
+    <button class="lp-modal__btn" type="button" data-close>확인</button>
+  </div>
+</div>
+
+<style>
+  /* ===== Layout ===== */
+  .lp-lucky-wrap{
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+    padding: 40px 16px;
+    text-align:center;
+  }
+  .lp-title{
+    font-weight:800;
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+  .lp-help{
+    margin-top: 14px;
+    font-size: 14px;
+    color: #777;
+    min-height: 18px;
+  }
+
+  /* ===== Board ===== */
+  .lp-board{
+    display:grid;
+    grid-template-columns: repeat(5, minmax(58px, 86px));
+    gap: 18px;
+    justify-content:center;
+    align-items:center;
+  }
+
+  /* ===== Clover button ===== */
+  .lp-clover{
+    width: 86px;
+    height: 86px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transform-origin: 50% 50%;
+  }
+
+  /* 하늘색 네잎클로버 (CSS로 간단 표현) */
+  .lp-clover::before{
+    content:"";
+    position:absolute;
+    inset: 0;
+    margin:auto;
+    width: 72px;
+    height: 72px;
+    background: #79d2ff;
+    border-radius: 18px;
+    /* 네잎 느낌 */
+    clip-path: path("M36 10 C26 0 10 6 10 22 C10 32 18 38 24 40 C18 42 10 48 10 60 C10 76 26 82 36 72 C46 82 62 76 62 60 C62 48 54 42 48 40 C54 38 62 32 62 22 C62 6 46 0 36 10 Z");
+  }
+
+  /* 클릭 후 핑크 클로버 */
+  .lp-clover.is-won::before{
+    background:#ff86b6;
+  }
+
+  /* 가운데 금액 텍스트 */
+  .lp-clover .lp-amount{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight: 900;
+    color:#fff;
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.08);
+  }
+
+  /* 3초 회전(오른쪽) + 서서히 멈춤 느낌 */
+  .lp-clover.is-spinning{
+    animation: lpSpinStop 3s cubic-bezier(0.12, 0.72, 0.08, 1) forwards;
+  }
+  @keyframes lpSpinStop{
+    0%   { transform: rotate(0deg) scale(1); }
+    10%  { transform: rotate(360deg) scale(1.03); }
+    40%  { transform: rotate(1440deg) scale(1.03); }
+    70%  { transform: rotate(2160deg) scale(1.02); }
+    100% { transform: rotate(2520deg) scale(1); } /* 총 7바퀴(오른쪽) */
+  }
+
+  .lp-clover:disabled{
+    cursor:not-allowed;
+    opacity:.55;
+  }
+
+  /* ===== Modal ===== */
+  .lp-modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    z-index: 99999;
+  }
+  .lp-modal.is-open{ display:block; }
+  .lp-modal__dim{
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,.35);
+  }
+  .lp-modal__card{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: min(420px, calc(100% - 32px));
+    background:#ff86b6;
+    border-radius: 16px;
+    padding: 22px 18px 16px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.28);
+    color:#fff;
+  }
+  .lp-modal__title{
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .lp-modal__desc{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .lp-modal__amount{
+    font-size: 28px;
+    font-weight: 1000;
+  }
+  .lp-modal__fineprint{
+    font-size: 14px;
+    opacity:.92;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+  .lp-modal__btn{
+    width:100%;
+    height: 44px;
+    border-radius: 12px;
+    border:0;
+    background:#fff;
+    color:#ff4f9a;
+    font-weight: 900;
+    cursor:pointer;
+  }
+</style>
+
+<script>
+(() => {
+  /**
+   * ====== (필수) 회원 체크 ======
+   * 아임웹 환경에서 회원 정보 접근은 사이트 설정/스킨에 따라 다릅니다.
+   * 아래 getMemberId()만 “현재 사이트에서 실제로 나오는 값”에 맞게 수정하면 됩니다.
+   */
+
+ function getMemberId() {
+  return "TEST_USER"; // GitHub 테스트 전용
+}
+
+  const memberId = getMemberId();
+  const helpEl = document.getElementById("lpHelp");
+  const modalEl = document.getElementById("lpModal");
+  const modalAmountEl = document.getElementById("lpModalAmount");
+
+  const todayKey = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+  const storageKey = memberId ? `LP_LUCKY_${memberId}_${todayKey}` : null;
+
+  // 이미 오늘 참여했는지
+  function hasClaimedToday() {
+    if (!storageKey) return false;
+    return localStorage.getItem(storageKey) === "claimed";
+  }
+  function markClaimed() {
+    if (!storageKey) return;
+    localStorage.setItem(storageKey, "claimed");
+  }
+
+  /**
+   * ====== 확률 모델 ======
+   * - 100원: 80%
+   * - 1000원: 0.1%
+   * - 110~990(10원단위): 총 19.9%를 "110원이 가장 크고, 990원이 가장 작게"
+   *   + (110 : 990) 확률 비율이 (80 : 0.1)에 가깝도록 지수감소(기하급수)로 가중치 배분
+   */
+  const P_100 = 0.80;
+  const P_1000 = 0.001;
+  const P_MID_TOTAL = 1 - P_100 - P_1000; // 0.199
+
+  const mids = [];
+  for (let v = 110; v <= 990; v += 10) mids.push(v);
+
+  // 110이 가장 높고 990이 가장 낮게: ratio ≈ 800 (80 / 0.1)
+  const ratio = 800;
+  const n = mids.length; // 89
+  // 기하급수 감소: w[i] = r^(-i/(n-1))  (w0=1, wLast=1/ratio)
+  const weights = mids.map((_, i) => Math.pow(ratio, -i / (n - 1)));
+  const wSum = weights.reduce((a,b) => a + b, 0);
+  const midProb = weights.map(w => (w / wSum) * P_MID_TOTAL);
+
+  // CDF 만들기
+  const cdf = [];
+  let acc = 0;
+
+  // 100원
+  acc += P_100;
+  cdf.push({ amount: 100, acc });
+
+  // 110~990
+  for (let i = 0; i < mids.length; i++) {
+    acc += midProb[i];
+    cdf.push({ amount: mids[i], acc });
+  }
+
+  // 1000원
+  acc = 1; // 부동소수 오차 방지
+  cdf.push({ amount: 1000, acc: 1 });
+
+  function drawAmount() {
+    const r = Math.random();
+    for (const row of cdf) {
+      if (r <= row.acc) return row.amount;
+    }
+    return 100; // fallback
+  }
+
+  /**
+   * ====== 팝업 ======
+   */
+  function openModal(amount) {
+    modalAmountEl.textContent = `${amount.toLocaleString()}원`;
+    modalEl.classList.add("is-open");
+    modalEl.setAttribute("aria-hidden", "false");
+  }
+  function closeModal() {
+    modalEl.classList.remove("is-open");
+    modalEl.setAttribute("aria-hidden", "true");
+  }
+  modalEl.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeModal();
+  });
+
+  /**
+   * ====== (선택) 서버에 적립금 지급 요청 ======
+   * 실제 운영은 반드시 서버에서:
+   *  - 회원 인증(세션/토큰)
+   *  - 1일 1회 체크
+   *  - 랜덤 결과 확정 & DB 저장
+   *  - 적립금 지급 처리
+   *
+   * 아래 함수는 “훅”만 만들어둔 겁니다. (지금은 프론트 랜덤 결과를 보내는 형태)
+   */
+  async function grantPointsOnServer(amount) {
+    // TODO: 운영 시, 이 부분을 실제 API로 교체하세요.
+    // 예시:
+    // const res = await fetch("/api/lucky-grant", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ amount }),
+    //   credentials: "include"
+    // });
+    // if (!res.ok) throw new Error("server error");
+    // return await res.json();
+    return { ok: true };
+  }
+
+  /**
+   * ====== 클릭 로직 ======
+   */
+  const clovers = Array.from(document.querySelectorAll(".lp-clover"));
+
+  // 회원 제한
+  if (!memberId) {
+    helpEl.textContent = "로그인 후 참여할 수 있어요!";
+    clovers.forEach(btn => btn.disabled = true);
+    return;
+  }
+
+  // 오늘 이미 참여했으면 비활성
+  if (hasClaimedToday()) {
+    helpEl.textContent = "오늘은 이미 참여했어요! 내일 또 와주세요 💗";
+    clovers.forEach(btn => btn.disabled = true);
+    return;
+  } else {
+    helpEl.textContent = "하늘색 네잎클로버를 눌러 오늘의 행운을 뽑아보세요!";
+  }
+
+  // 1회만 가능: 첫 클릭 이후 잠금
+  let locked = false;
+
+  clovers.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      if (locked) return;
+      locked = true;
+      clovers.forEach(b => b.disabled = true);
+
+      // 당첨 금액
+      const amount = drawAmount();
+
+      // 3초 회전 시작
+      btn.classList.add("is-spinning");
+
+      // 3초 후: 핑크로 바꾸고 금액 표시
+      setTimeout(() => {
+        btn.classList.remove("is-spinning");
+        btn.classList.add("is-won");
+
+        const amountEl = document.createElement("div");
+        amountEl.className = "lp-amount";
+        amountEl.textContent = `${amount.toLocaleString()}원`;
+        btn.appendChild(amountEl);
+      }, 3000);
+
+      // 회전 끝난 뒤 1초 후 팝업
+      setTimeout(async () => {
+        try {
+          // (운영 시) 서버 지급
+          await grantPointsOnServer(amount);
+
+          // 오늘 완료 처리(테스트는 로컬)
+          markClaimed();
+          openModal(amount);
+          helpEl.textContent = "내일도 다시 참여할 수 있어요!";
+        } catch (err) {
+          // 실패 시: 잠금 해제(테스트 편의)
+          locked = false;
+          clovers.forEach(b => b.disabled = false);
+          helpEl.textContent = "지급 처리에 실패했어요. 잠시 후 다시 시도해주세요.";
+          console.error(err);
+        }
+      }, 4000);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
