@@ -188,54 +188,32 @@ body{
   cursor:pointer;
 }
 
-/* 5,000원 이상 */
+/* 💎 5,000원 이상 공통 효과 */
 .lp-clover.big-win svg{
   fill: #ffd54f; /* 골드 */
 }
 
 .lp-clover.big-win{
-  animation: bounceGlow .6s ease-in-out infinite alternate;
+  animation: bigWinPulse .7s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 14px rgba(255,215,64,.85));
 }
 
-@keyframes bounceGlow{
-  0%{
-    transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 0 rgba(255,215,64,0));
-  }
-  100%{
-    transform: scale(1.08) rotate(3deg);
-    filter: drop-shadow(0 0 12px rgba(255,215,64,.8));
-  }
-}
-
-/* jackpot */
-.lp-clover.jackpot svg{
-  fill: #7ce3ff;
-}
-
-.lp-clover.jackpot{
-  animation: jackpotSpin 2s ease-out forwards;
-  filter: drop-shadow(0 0 20px rgba(124,227,255,.9));
-}
-
-@keyframes jackpotSpin{
+@keyframes bigWinPulse{
   0%{
     transform: scale(1) rotate(0deg);
   }
-  50%{
-    transform: scale(1.25) rotate(540deg);
-  }
   100%{
-    transform: scale(1.15) rotate(720deg);
+    transform: scale(1.1) rotate(3deg);
   }
 }
-.lp-clover.jackpot .amount{
+
+/* 금액 텍스트도 강조 */
+.lp-clover.big-win .amount{
   font-size: 28px;
   font-weight: 900;
-  color: #00cfff;
-  text-shadow: 0 0 12px rgba(124,227,255,.9);
+  color: #fff3b0;
+  text-shadow: 0 0 10px rgba(255,215,64,.9);
 }
-
 
 /* 반응형 */
 @media (max-width: 720px){
