@@ -27,10 +27,20 @@ let locked = false;
 
 function drawAmount(){
   const r = Math.random();
-  if (r < 0.8) return 100;
-  if (r > 0.999) return 1000;
-  return Math.floor((Math.random()*89 + 11)) * 10;
+
+  // 🎯 10,000원 (0.1%)
+  if (r < 0.001) {
+    return 10000;
+  }
+
+  // 🎲 나머지 99.9% → 100 ~ 9,900 (100원 단위)
+  const min = 1;   // 100원
+  const max = 99;  // 9,900원
+  const unit = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  return unit * 100;
 }
+
 
 function openModal(amount){
   modalAmount.textContent = amount.toLocaleString() + "원";
