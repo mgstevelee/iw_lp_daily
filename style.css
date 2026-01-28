@@ -21,10 +21,29 @@ body{
 /* ===== 보드 ===== */
 .lp-board{
   display:grid;
-  grid-template-columns: repeat(5, minmax(56px, 90px));
+  grid-template-columns: repeat(4, minmax(56px, 90px));
   gap:18px;
   justify-content:center;
 }
+
+/* 1번째 줄: 가운데 정렬된 2개 */
+.lp-clover.row1:nth-of-type(1){
+  grid-column: 2;
+}
+.lp-clover.row1:nth-of-type(2){
+  grid-column: 3;
+}
+
+/* 2번째 줄: 4개 */
+.lp-clover.row2{
+  grid-column: auto;
+}
+
+/* 3번째 줄: 4개 */
+.lp-clover.row3{
+  grid-column: auto;
+}
+
 
 /* ===== 네잎클로버 버튼 ===== */
 .lp-clover{
@@ -129,5 +148,9 @@ body{
 
 /* ===== 반응형 ===== */
 @media(max-width:600px){
-  .lp-clover{ width:64px; height:64px; }
+  .lp-clover{
+    width:60px;
+    height:60px;
+  }
 }
+
