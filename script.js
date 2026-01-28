@@ -60,13 +60,22 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
 
     btn.classList.add("spin");
 
-    setTimeout(()=>{
-      btn.classList.add("win");
-      const span = document.createElement("span");
-      span.className = "amount";
-      span.textContent = amount.toLocaleString() + "원";
-      btn.appendChild(span);
-    }, 3000);
+setTimeout(()=>{
+  btn.classList.add("win");
+
+  if(amount >= 5000){
+    btn.classList.add("big-win");
+  }
+  if(amount === 10000){
+    btn.classList.add("jackpot");
+  }
+
+  const span = document.createElement("span");
+  span.className = "amount";
+  span.textContent = amount.toLocaleString() + "원";
+  btn.appendChild(span);
+}, 3000);
+
 
     setTimeout(()=>{
       localStorage.setItem(todayKey,"1");
