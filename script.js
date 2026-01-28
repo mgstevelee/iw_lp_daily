@@ -25,7 +25,12 @@ const modalAmount = document.getElementById("lpModalAmount");
 
 let locked = false;
 
+// ✅ 테스트용: null이면 정상 확률, 숫자면 강제 당첨
+const FORCE_AMOUNT = 5000; // 5000 또는 10000으로 바꾸면 강제
+
+
 function drawAmount(){
+   if (FORCE_AMOUNT !== null) return FORCE_AMOUNT;
   const r = Math.random();
 
   // 👑 10,000원 (0.1%)
