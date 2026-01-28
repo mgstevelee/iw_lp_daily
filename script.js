@@ -55,7 +55,8 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
     locked = true;
 
     const amount = drawAmount();
-    btn.classList.add("spin");
+
+    btn.classList.add("spin");   // ✅ 여기 그대로 OK
 
     setTimeout(()=>{
       btn.classList.add("win");
@@ -70,3 +71,4 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
     },4000);
   });
 });
+
