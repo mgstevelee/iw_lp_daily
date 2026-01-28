@@ -22,27 +22,29 @@ body{
 .lp-board{
   display:grid;
   grid-template-columns: repeat(4, minmax(56px, 90px));
-  gap:18px;
+  gap: 22px;
   justify-content:center;
+  align-items:center;
+
+  /* ✅ 2–4–4 레이아웃 강제 */
+  grid-template-areas:
+    ".  a  b  ."
+    "c  d  e  f"
+    "g  h  i  j";
 }
 
-/* 1번째 줄: 가운데 정렬된 2개 */
-.lp-clover.row1:nth-of-type(1){
-  grid-column: 2;
-}
-.lp-clover.row1:nth-of-type(2){
-  grid-column: 3;
-}
+/* 각 버튼을 해당 영역에 고정 */
+.lp-clover.c1{ grid-area: a; }
+.lp-clover.c2{ grid-area: b; }
+.lp-clover.c3{ grid-area: c; }
+.lp-clover.c4{ grid-area: d; }
+.lp-clover.c5{ grid-area: e; }
+.lp-clover.c6{ grid-area: f; }
+.lp-clover.c7{ grid-area: g; }
+.lp-clover.c8{ grid-area: h; }
+.lp-clover.c9{ grid-area: i; }
+.lp-clover.c10{ grid-area: j; }
 
-/* 2번째 줄: 4개 */
-.lp-clover.row2{
-  grid-column: auto;
-}
-
-/* 3번째 줄: 4개 */
-.lp-clover.row3{
-  grid-column: auto;
-}
 
 
 /* ===== 네잎클로버 버튼 ===== */
