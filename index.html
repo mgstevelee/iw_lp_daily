@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple SD Gothic Neo'; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple SD Gothic Neo'; font-kerning: none}
+    span.s3 {font: 12.0px Helvetica; font-kerning: none}
+    span.s4 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;div class="lp-lucky-wrap"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lp-title"&gt;</span><span class="s2">오늘의</span><span class="s1"> </span><span class="s2">행운을</span><span class="s1"> </span><span class="s2">뽑아보세요</span><span class="s1">!!&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- </span><span class="s2">보드</span><span class="s1">(</span><span class="s2">샘플</span><span class="s1">) --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lp-board"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-clover" type="button" aria-label="</span><span class="s2">네잎클로버</span><span class="s1">"&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lp-help" id="lpHelp"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- </span><span class="s2">팝업</span><span class="s1"> --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="lp-modal" id="lpModal" aria-hidden="true"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lp-modal__dim" data-close&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lp-modal__card" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="lp-modal__title" id="lpModalTitle"&gt;</span><span class="s2">짠</span><span class="s1">! </span><span class="s2">축하드립니다</span><span class="s1">!&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="lp-modal__desc"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">적립금</span><span class="s1"> &lt;b class="lp-modal__amount" id="lpModalAmount"&gt;0</span><span class="s2">원</span><span class="s1">&lt;/b&gt; </span><span class="s2">당첨</span><span class="s1">!</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="lp-modal__fineprint"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">해당</span><span class="s1"> </span><span class="s2">적립금은</span><span class="s1"> 30</span><span class="s2">일</span><span class="s1"> </span><span class="s2">이내에</span><span class="s1"> </span><span class="s2">사용</span><span class="s1"> </span><span class="s2">가능하며</span><span class="s1">,&lt;br/&gt;</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">      </span></span><span class="s1">마이페이지에서</span><span class="s3"> </span><span class="s1">확인</span><span class="s3"> </span><span class="s1">가능합니다</span><span class="s3">!</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="lp-modal__btn" type="button" data-close&gt;</span><span class="s2">확인</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* ===== Layout ===== */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-lucky-wrap{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 40px 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-align:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-title{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:800;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-help{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #777;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>min-height: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* ===== Board ===== */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-board{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>grid-template-columns: repeat(5, minmax(58px, 86px));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>justify-content:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>align-items:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* ===== Clover button ===== */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: 86px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 86px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: transparent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>outline: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>transform-origin: 50% 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* </span><span class="s2">하늘색</span><span class="s1"> </span><span class="s2">네잎클로버</span><span class="s1"> (CSS</span><span class="s2">로</span><span class="s1"> </span><span class="s2">간단</span><span class="s1"> </span><span class="s2">표현</span><span class="s1">) */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover::before{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>content:"";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inset: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: 72px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 72px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: #79d2ff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* </span><span class="s2">네잎</span><span class="s1"> </span><span class="s2">느낌</span><span class="s1"> */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clip-path: path("M36 10 C26 0 10 6 10 22 C10 32 18 38 24 40 C18 42 10 48 10 60 C10 76 26 82 36 72 C46 82 62 76 62 60 C62 48 54 42 48 40 C54 38 62 32 62 22 C62 6 46 0 36 10 Z");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* </span><span class="s2">클릭</span><span class="s1"> </span><span class="s2">후</span><span class="s1"> </span><span class="s2">핑크</span><span class="s1"> </span><span class="s2">클로버</span><span class="s1"> */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover.is-won::before{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:#ff86b6;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* </span><span class="s2">가운데</span><span class="s1"> </span><span class="s2">금액</span><span class="s1"> </span><span class="s2">텍스트</span><span class="s1"> */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover .lp-amount{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inset:0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>align-items:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>justify-content:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 900;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-shadow: 0 1px 0 rgba(0,0,0,.08);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 3</span><span class="s2">초</span><span class="s1"> </span><span class="s2">회전</span><span class="s1">(</span><span class="s2">오른쪽</span><span class="s1">) + </span><span class="s2">서서히</span><span class="s1"> </span><span class="s2">멈춤</span><span class="s1"> </span><span class="s2">느낌</span><span class="s1"> */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover.is-spinning{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>animation: lpSpinStop 3s cubic-bezier(0.12, 0.72, 0.08, 1) forwards;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@keyframes lpSpinStop{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>0% <span class="Apple-converted-space">  </span>{ transform: rotate(0deg) scale(1); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>10%<span class="Apple-converted-space">  </span>{ transform: rotate(360deg) scale(1.03); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>40%<span class="Apple-converted-space">  </span>{ transform: rotate(1440deg) scale(1.03); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>70%<span class="Apple-converted-space">  </span>{ transform: rotate(2160deg) scale(1.02); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>100% { transform: rotate(2520deg) scale(1); } /* </span><span class="s2">총</span><span class="s1"> 7</span><span class="s2">바퀴</span><span class="s1">(</span><span class="s2">오른쪽</span><span class="s1">) */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-clover:disabled{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cursor:not-allowed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity:.55;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* ===== Modal ===== */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inset:0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>z-index: 99999;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal.is-open{ display:block; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__dim{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inset:0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(0,0,0,.35);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__card{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>left:50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>top:50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>transform: translate(-50%,-50%);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: min(420px, calc(100% - 32px));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:#ff86b6;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 22px 18px 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: 0 18px 50px rgba(0,0,0,.28);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__title{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 900;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__desc{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 700;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__amount{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 28px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 1000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__fineprint{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity:.92;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>line-height: 1.35;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.lp-modal__btn{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width:100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 44px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 12px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border:0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:#fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#ff4f9a;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 900;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cursor:pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* ====== (</span><span class="s2">필수</span><span class="s1">) </span><span class="s2">회원</span><span class="s1"> </span><span class="s2">체크</span><span class="s1"> ======</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">   </span>* </span><span class="s1">아임웹</span><span class="s3"> </span><span class="s1">환경에서</span><span class="s3"> </span><span class="s1">회원</span><span class="s3"> </span><span class="s1">정보</span><span class="s3"> </span><span class="s1">접근은</span><span class="s3"> </span><span class="s1">사이트</span><span class="s3"> </span><span class="s1">설정</span><span class="s3">/</span><span class="s1">스킨에</span><span class="s3"> </span><span class="s1">따라</span><span class="s3"> </span><span class="s1">다릅니다</span><span class="s3">.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* </span><span class="s2">아래</span><span class="s1"> getMemberId()</span><span class="s2">만</span><span class="s1"> “</span><span class="s2">현재</span><span class="s1"> </span><span class="s2">사이트에서</span><span class="s1"> </span><span class="s2">실제로</span><span class="s1"> </span><span class="s2">나오는</span><span class="s1"> </span><span class="s2">값</span><span class="s1">”</span><span class="s2">에</span><span class="s1"> </span><span class="s2">맞게</span><span class="s1"> </span><span class="s2">수정하면</span><span class="s1"> </span><span class="s2">됩니다</span><span class="s1">.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>function getMemberId() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>return "TEST_USER"; // GitHub 테스트 전용</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const memberId = getMemberId();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const helpEl = document.getElementById("lpHelp");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const modalEl = document.getElementById("lpModal");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const modalAmountEl = document.getElementById("lpModalAmount");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const todayKey = new Date().toISOString().slice(0,10); // YYYY-MM-DD</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const storageKey = memberId ? `LP_LUCKY_${memberId}_${todayKey}` : null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">  </span>// </span><span class="s1">이미</span><span class="s3"> </span><span class="s1">오늘</span><span class="s3"> </span><span class="s1">참여했는지</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function hasClaimedToday() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (!storageKey) return false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return localStorage.getItem(storageKey) === "claimed";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function markClaimed() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (!storageKey) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>localStorage.setItem(storageKey, "claimed");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* ====== </span><span class="s2">확률</span><span class="s1"> </span><span class="s2">모델</span><span class="s1"> ======</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* - 100</span><span class="s2">원</span><span class="s1">: 80%</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* - 1000</span><span class="s2">원</span><span class="s1">: 0.1%</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* - 110~990(10</span><span class="s2">원단위</span><span class="s1">): </span><span class="s2">총</span><span class="s1"> 19.9%</span><span class="s2">를</span><span class="s1"> "110</span><span class="s2">원이</span><span class="s1"> </span><span class="s2">가장</span><span class="s1"> </span><span class="s2">크고</span><span class="s1">, 990</span><span class="s2">원이</span><span class="s1"> </span><span class="s2">가장</span><span class="s1"> </span><span class="s2">작게</span><span class="s1">"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* <span class="Apple-converted-space">  </span>+ (110 : 990) </span><span class="s2">확률</span><span class="s1"> </span><span class="s2">비율이</span><span class="s1"> (80 : 0.1)</span><span class="s2">에</span><span class="s1"> </span><span class="s2">가깝도록</span><span class="s1"> </span><span class="s2">지수감소</span><span class="s1">(</span><span class="s2">기하급수</span><span class="s1">)</span><span class="s2">로</span><span class="s1"> </span><span class="s2">가중치</span><span class="s1"> </span><span class="s2">배분</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*/</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const P_100 = 0.80;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const P_1000 = 0.001;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const P_MID_TOTAL = 1 - P_100 - P_1000; // 0.199</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mids = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>for (let v = 110; v &lt;= 990; v += 10) mids.push(v);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 110</span><span class="s2">이</span><span class="s1"> </span><span class="s2">가장</span><span class="s1"> </span><span class="s2">높고</span><span class="s1"> 990</span><span class="s2">이</span><span class="s1"> </span><span class="s2">가장</span><span class="s1"> </span><span class="s2">낮게</span><span class="s1">: ratio ≈ 800 (80 / 0.1)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const ratio = 800;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const n = mids.length; // 89</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// </span><span class="s2">기하급수</span><span class="s1"> </span><span class="s2">감소</span><span class="s1">: w[i] = r^(-i/(n-1))<span class="Apple-converted-space">  </span>(w0=1, wLast=1/ratio)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const weights = mids.map((_, i) =&gt; Math.pow(ratio, -i / (n - 1)));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const wSum = weights.reduce((a,b) =&gt; a + b, 0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const midProb = weights.map(w =&gt; (w / wSum) * P_MID_TOTAL);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// CDF </span><span class="s2">만들기</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const cdf = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let acc = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 100</span><span class="s2">원</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>acc += P_100;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cdf.push({ amount: 100, acc });</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 110~990</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>for (let i = 0; i &lt; mids.length; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>acc += midProb[i];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cdf.push({ amount: mids[i], acc });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 1000</span><span class="s2">원</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>acc = 1; // </span><span class="s2">부동소수</span><span class="s1"> </span><span class="s2">오차</span><span class="s1"> </span><span class="s2">방지</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cdf.push({ amount: 1000, acc: 1 });</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function drawAmount() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const r = Math.random();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (const row of cdf) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (r &lt;= row.acc) return row.amount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return 100; // fallback</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* ====== </span><span class="s2">팝업</span><span class="s1"> ======</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*/</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function openModal(amount) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalAmountEl.textContent = `${amount.toLocaleString()}</span><span class="s2">원</span><span class="s1">`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalEl.classList.add("is-open");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalEl.setAttribute("aria-hidden", "false");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function closeModal() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalEl.classList.remove("is-open");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalEl.setAttribute("aria-hidden", "true");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>modalEl.addEventListener("click", (e) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (e.target.matches("[data-close]")) closeModal();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* ====== (</span><span class="s2">선택</span><span class="s1">) </span><span class="s2">서버에</span><span class="s1"> </span><span class="s2">적립금</span><span class="s1"> </span><span class="s2">지급</span><span class="s1"> </span><span class="s2">요청</span><span class="s1"> ======</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">   </span>* </span><span class="s1">실제</span><span class="s3"> </span><span class="s1">운영은</span><span class="s3"> </span><span class="s1">반드시</span><span class="s3"> </span><span class="s1">서버에서</span><span class="s3">:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*<span class="Apple-converted-space">  </span>- </span><span class="s2">회원</span><span class="s1"> </span><span class="s2">인증</span><span class="s1">(</span><span class="s2">세션</span><span class="s1">/</span><span class="s2">토큰</span><span class="s1">)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*<span class="Apple-converted-space">  </span>- 1</span><span class="s2">일</span><span class="s1"> 1</span><span class="s2">회</span><span class="s1"> </span><span class="s2">체크</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*<span class="Apple-converted-space">  </span>- </span><span class="s2">랜덤</span><span class="s1"> </span><span class="s2">결과</span><span class="s1"> </span><span class="s2">확정</span><span class="s1"> &amp; DB </span><span class="s2">저장</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*<span class="Apple-converted-space">  </span>- </span><span class="s2">적립금</span><span class="s1"> </span><span class="s2">지급</span><span class="s1"> </span><span class="s2">처리</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">   </span>* </span><span class="s1">아래</span><span class="s3"> </span><span class="s1">함수는</span><span class="s3"> “</span><span class="s1">훅</span><span class="s3">”</span><span class="s1">만</span><span class="s3"> </span><span class="s1">만들어둔</span><span class="s3"> </span><span class="s1">겁니다</span><span class="s3">. (</span><span class="s1">지금은</span><span class="s3"> </span><span class="s1">프론트</span><span class="s3"> </span><span class="s1">랜덤</span><span class="s3"> </span><span class="s1">결과를</span><span class="s3"> </span><span class="s1">보내는</span><span class="s3"> </span><span class="s1">형태</span><span class="s3">)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*/</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>async function grantPointsOnServer(amount) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// TODO: </span><span class="s2">운영</span><span class="s1"> </span><span class="s2">시</span><span class="s1">, </span><span class="s2">이</span><span class="s1"> </span><span class="s2">부분을</span><span class="s1"> </span><span class="s2">실제</span><span class="s1"> API</span><span class="s2">로</span><span class="s1"> </span><span class="s2">교체하세요</span><span class="s1">.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">예시</span><span class="s1">:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// const res = await fetch("/api/lucky-grant", {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// <span class="Apple-converted-space">  </span>method: "POST",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// <span class="Apple-converted-space">  </span>headers: { "Content-Type": "application/json" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// <span class="Apple-converted-space">  </span>body: JSON.stringify({ amount }),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// <span class="Apple-converted-space">  </span>credentials: "include"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// if (!res.ok) throw new Error("server error");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// return await res.json();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return { ok: true };</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/**</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>* ====== </span><span class="s2">클릭</span><span class="s1"> </span><span class="s2">로직</span><span class="s1"> ======</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>*/</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const clovers = Array.from(document.querySelectorAll(".lp-clover"));</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// </span><span class="s2">회원</span><span class="s1"> </span><span class="s2">제한</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!memberId) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>helpEl.textContent = "</span><span class="s2">로그인</span><span class="s1"> </span><span class="s2">후</span><span class="s1"> </span><span class="s2">참여할</span><span class="s1"> </span><span class="s2">수</span><span class="s1"> </span><span class="s2">있어요</span><span class="s1">!";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clovers.forEach(btn =&gt; btn.disabled = true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">  </span>// </span><span class="s1">오늘</span><span class="s3"> </span><span class="s1">이미</span><span class="s3"> </span><span class="s1">참여했으면</span><span class="s3"> </span><span class="s1">비활성</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (hasClaimedToday()) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>helpEl.textContent = "</span><span class="s2">오늘은</span><span class="s1"> </span><span class="s2">이미</span><span class="s1"> </span><span class="s2">참여했어요</span><span class="s1">! </span><span class="s2">내일</span><span class="s1"> </span><span class="s2">또</span><span class="s1"> </span><span class="s2">와주세요</span><span class="s1"> </span><span class="s4">💗</span><span class="s1">";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clovers.forEach(btn =&gt; btn.disabled = true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>helpEl.textContent = "</span><span class="s2">하늘색</span><span class="s1"> </span><span class="s2">네잎클로버를</span><span class="s1"> </span><span class="s2">눌러</span><span class="s1"> </span><span class="s2">오늘의</span><span class="s1"> </span><span class="s2">행운을</span><span class="s1"> </span><span class="s2">뽑아보세요</span><span class="s1">!";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 1</span><span class="s2">회만</span><span class="s1"> </span><span class="s2">가능</span><span class="s1">: </span><span class="s2">첫</span><span class="s1"> </span><span class="s2">클릭</span><span class="s1"> </span><span class="s2">이후</span><span class="s1"> </span><span class="s2">잠금</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let locked = false;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>clovers.forEach((btn) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>btn.addEventListener("click", async () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (locked) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>locked = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>clovers.forEach(b =&gt; b.disabled = true);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// </span><span class="s2">당첨</span><span class="s1"> </span><span class="s2">금액</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const amount = drawAmount();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// 3</span><span class="s2">초</span><span class="s1"> </span><span class="s2">회전</span><span class="s1"> </span><span class="s2">시작</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.classList.add("is-spinning");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// 3</span><span class="s2">초</span><span class="s1"> </span><span class="s2">후</span><span class="s1">: </span><span class="s2">핑크로</span><span class="s1"> </span><span class="s2">바꾸고</span><span class="s1"> </span><span class="s2">금액</span><span class="s1"> </span><span class="s2">표시</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>btn.classList.remove("is-spinning");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>btn.classList.add("is-won");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const amountEl = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>amountEl.className = "lp-amount";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>amountEl.textContent = `${amount.toLocaleString()}</span><span class="s2">원</span><span class="s1">`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>btn.appendChild(amountEl);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}, 3000);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// </span><span class="s2">회전</span><span class="s1"> </span><span class="s2">끝난</span><span class="s1"> </span><span class="s2">뒤</span><span class="s1"> 1</span><span class="s2">초</span><span class="s1"> </span><span class="s2">후</span><span class="s1"> </span><span class="s2">팝업</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>setTimeout(async () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>// (</span><span class="s2">운영</span><span class="s1"> </span><span class="s2">시</span><span class="s1">) </span><span class="s2">서버</span><span class="s1"> </span><span class="s2">지급</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>await grantPointsOnServer(amount);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>// </span><span class="s2">오늘</span><span class="s1"> </span><span class="s2">완료</span><span class="s1"> </span><span class="s2">처리</span><span class="s1">(</span><span class="s2">테스트는</span><span class="s1"> </span><span class="s2">로컬</span><span class="s1">)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>markClaimed();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>openModal(amount);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>helpEl.textContent = "</span><span class="s2">내일도</span><span class="s1"> </span><span class="s2">다시</span><span class="s1"> </span><span class="s2">참여할</span><span class="s1"> </span><span class="s2">수</span><span class="s1"> </span><span class="s2">있어요</span><span class="s1">!";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} catch (err) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>// </span><span class="s2">실패</span><span class="s1"> </span><span class="s2">시</span><span class="s1">: </span><span class="s2">잠금</span><span class="s1"> </span><span class="s2">해제</span><span class="s1">(</span><span class="s2">테스트</span><span class="s1"> </span><span class="s2">편의</span><span class="s1">)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>locked = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>clovers.forEach(b =&gt; b.disabled = false);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>helpEl.textContent = "</span><span class="s2">지급</span><span class="s1"> </span><span class="s2">처리에</span><span class="s1"> </span><span class="s2">실패했어요</span><span class="s1">. </span><span class="s2">잠시</span><span class="s1"> </span><span class="s2">후</span><span class="s1"> </span><span class="s2">다시</span><span class="s1"> </span><span class="s2">시도해주세요</span><span class="s1">.";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.error(err);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}, 4000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1">})();</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+</body>
+</html>
