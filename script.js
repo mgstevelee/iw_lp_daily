@@ -28,18 +28,57 @@ let locked = false;
 function drawAmount(){
   const r = Math.random();
 
-  // 🎯 10,000원 (0.1%)
-  if (r < 0.1) {
+  // 👑 10,000원 (0.1%)
+  if (r < 0.001) {
     return 10000;
   }
 
-  // 🎲 나머지 99.9% → 100 ~ 9,900 (100원 단위)
-  const min = 1;   // 100원
-  const max = 99;  // 9,900원
-  const unit = Math.floor(Math.random() * (max - min + 1)) + min;
+  // 💎 9,000 ~ 9,900원 (0.5%)
+  if (r < 0.006) {
+    const unit = Math.floor(Math.random() * (99 - 90 + 1)) + 90; // 90~99
+    return unit * 100;
+  }
 
-  return unit * 100;
+  // 🎉 7,000 ~ 8,900원 (1%)
+  if (r < 0.016) {
+    const unit = Math.floor(Math.random() * (89 - 70 + 1)) + 70; // 70~89
+    return unit * 100;
+  }
+
+  // ✨ 5,000 ~ 6,900원 (3%)
+  if (r < 0.046) {
+    const unit = Math.floor(Math.random() * (69 - 50 + 1)) + 50; // 50~69
+    return unit * 100;
+  }
+
+  // 🔵 2,000 ~ 4,900원 (5%)
+  if (r < 0.096) {
+    const unit = Math.floor(Math.random() * (49 - 20 + 1)) + 20; // 20~49
+    return unit * 100;
+  }
+
+  // 🟢 1,000 ~ 1,900원 (7%)
+  if (r < 0.166) {
+    const unit = Math.floor(Math.random() * (19 - 10 + 1)) + 10; // 10~19
+    return unit * 100;
+  }
+
+  // 🟡 500 ~ 900원 (10%)
+  if (r < 0.266) {
+    const unit = Math.floor(Math.random() * (9 - 5 + 1)) + 5; // 5~9
+    return unit * 100;
+  }
+
+  // ⚪ 200 ~ 400원 (30%)
+  if (r < 0.566) {
+    const units = [2, 3, 4]; // 200, 300, 400
+    return units[Math.floor(Math.random() * units.length)] * 100;
+  }
+
+  // 🧊 나머지 (43.4%)
+  return 100;
 }
+
 
 
 function openModal(amount){
