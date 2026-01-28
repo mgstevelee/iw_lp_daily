@@ -41,6 +41,7 @@ body{
   width:100%;
   height:100%;
   fill:#79d2ff;
+  transform: rotate(90deg);   /* ✅ 오른쪽으로 90도 */
   transition: transform .3s ease, fill .3s ease;
 }
 
