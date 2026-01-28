@@ -2,13 +2,15 @@ function cloverSVG(){
   return `
     <span class="clover-wrap">
       <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="28" r="22"></circle>
-        <circle cx="72" cy="50" r="22"></circle>
-        <circle cx="50" cy="72" r="22"></circle>
-        <circle cx="28" cy="50" r="22"></circle>
+        <!-- 대각선(×) 배치 -->
+        <circle cx="35" cy="35" r="22"></circle>
+        <circle cx="65" cy="35" r="22"></circle>
+        <circle cx="35" cy="65" r="22"></circle>
+        <circle cx="65" cy="65" r="22"></circle>
       </svg>
     </span>`;
 }
+
 
 document.querySelectorAll(".lp-clover").forEach(btn=>{
   btn.innerHTML = cloverSVG();
