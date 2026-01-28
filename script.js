@@ -29,7 +29,7 @@ function drawAmount(){
   const r = Math.random();
 
   // 🎯 10,000원 (0.1%)
-  if (r < 0.001) {
+  if (r < 0.1) {
     return 10000;
   }
 
