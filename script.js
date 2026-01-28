@@ -60,3 +60,15 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
 
     setTimeout(()=>{
       btn.classList.add("win");
+      const span = document.createElement("span");
+      span.className = "amount";
+      span.textContent = amount.toLocaleString() + "원";
+      btn.appendChild(span);
+    }, 3000);
+
+    setTimeout(()=>{
+      localStorage.setItem(todayKey,"1");
+      openModal(amount);
+    }, 4000);
+  });
+});
