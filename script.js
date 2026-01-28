@@ -1,5 +1,4 @@
 function cloverSVG(){
-  // ✅ 완전 대칭 4잎 (원 4개)
   return `
     <span class="clover-wrap">
       <svg viewBox="0 0 100 100" aria-hidden="true">
@@ -28,7 +27,7 @@ function drawAmount(){
   const r = Math.random();
   if (r < 0.8) return 100;
   if (r > 0.999) return 1000;
-  return Math.floor((Math.random()*89 + 11)) * 10; // 110~990 (임시)
+  return Math.floor((Math.random()*89 + 11)) * 10;
 }
 
 function openModal(amount){
@@ -36,6 +35,7 @@ function openModal(amount){
   modal.classList.add("show");
   modal.setAttribute("aria-hidden","false");
 }
+
 function closeModal(){
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden","true");
@@ -56,7 +56,7 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
 
     const amount = drawAmount();
 
-    btn.classList.add("spin");  // ✅ 버튼에 spin
+    btn.classList.add("spin");
 
     setTimeout(()=>{
       btn.classList.add("win");
@@ -71,4 +71,4 @@ document.querySelectorAll(".lp-clover").forEach(btn=>{
       openModal(amount);
     }, 4000);
   });
-});
+}); // ✅ forEach 닫힘
