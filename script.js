@@ -118,11 +118,8 @@ setTimeout(()=>{
   btn.classList.add("win");
 
   if(amount >= 5000){
-    btn.classList.add("big-win");
-  }
-  if(amount === 10000){
-    btn.classList.add("jackpot");
-  }
+  btn.classList.add("big-win"); // 5천 / 1만원 동일 효과
+}
 
   const span = document.createElement("span");
   span.className = "amount";
