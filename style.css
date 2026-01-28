@@ -1,159 +1,188 @@
-/* ===== 기본 ===== */
+:root{
+  --blue:#79d2ff;
+  --pink:#ff86b6;
+  --pinkDeep:#ff4f9a;
+  --green:#7CFF5B;
+  --text:#111;
+}
+
+*{ box-sizing:border-box; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif;
   background:#fff;
+  color:var(--text);
 }
 
 .lp-wrap{
-  max-width:1200px;
-  margin:0 auto;
-  padding:40px 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 16px 72px;
   text-align:center;
 }
 
 .lp-title{
-  font-size:22px;
-  font-weight:800;
-  margin-bottom:24px;
+  margin:0 0 36px;
+  font-size: 44px;
+  font-weight: 1000;
+  letter-spacing:-0.03em;
 }
 
-/* ===== 보드 ===== */
+/* ✅ 2–4–4 강제 배치 */
 .lp-board{
   display:grid;
-  grid-template-columns: repeat(4, minmax(56px, 90px));
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(72px, 140px));
+  gap: 46px;
   justify-content:center;
   align-items:center;
 
-  /* ✅ 2–4–4 레이아웃 강제 */
   grid-template-areas:
     ".  a  b  ."
     "c  d  e  f"
     "g  h  i  j";
 }
 
-/* 각 버튼을 해당 영역에 고정 */
-.lp-clover.c1{ grid-area: a; }
-.lp-clover.c2{ grid-area: b; }
-.lp-clover.c3{ grid-area: c; }
-.lp-clover.c4{ grid-area: d; }
-.lp-clover.c5{ grid-area: e; }
-.lp-clover.c6{ grid-area: f; }
-.lp-clover.c7{ grid-area: g; }
-.lp-clover.c8{ grid-area: h; }
-.lp-clover.c9{ grid-area: i; }
-.lp-clover.c10{ grid-area: j; }
+.lp-clover.c1{ grid-area:a; }
+.lp-clover.c2{ grid-area:b; }
+.lp-clover.c3{ grid-area:c; }
+.lp-clover.c4{ grid-area:d; }
+.lp-clover.c5{ grid-area:e; }
+.lp-clover.c6{ grid-area:f; }
+.lp-clover.c7{ grid-area:g; }
+.lp-clover.c8{ grid-area:h; }
+.lp-clover.c9{ grid-area:i; }
+.lp-clover.c10{ grid-area:j; }
 
-
-
-/* ===== 네잎클로버 버튼 ===== */
+/* 버튼 기본 */
 .lp-clover{
-  width:90px;
-  height:90px;
+  width: 140px;
+  height: 140px;
   border:0;
-  background:none;
-  cursor:pointer;
+  background: transparent;
   padding:0;
+  cursor:pointer;
+  position:relative;
+  transform-origin: 50% 50%;
 }
 
-/* SVG 네잎: 기본 방향을 90도 오른쪽으로 고정 */
-.lp-clover svg{
+/* ✅ transform 충돌 방지용 래퍼 */
+.lp-clover .clover-wrap{
   width:100%;
   height:100%;
-  fill:#79d2ff;
-  transform: rotate(90deg);                 /* ✅ 항상 90도 유지 */
-  transition: fill .25s ease;
   display:block;
 }
 
-/* 스핀은 버튼 자체를 회전시킨다(= SVG의 90도는 그대로 포함됨) */
+/* ✅ SVG는 항상 90도 오른쪽으로 고정 */
+.lp-clover svg{
+  width:100%;
+  height:100%;
+  display:block;
+  fill: var(--blue);
+  transform: rotate(90deg); /* ✅ 이게 “방향” */
+  transition: fill .2s ease;
+}
+
+/* ✅ 회전 애니메이션은 버튼에만 적용 (방향 고정 유지) */
 .lp-clover.spin{
   animation: spinStop 3s cubic-bezier(.12,.72,.08,1) forwards;
 }
-
 @keyframes spinStop{
   0%{ transform: rotate(0deg); }
   100%{ transform: rotate(2520deg); }
 }
 
-/* 당첨 시 핑크 */
-.lp-clover.win svg{
-  fill:#ff86b6;
-}
+.lp-clover.win svg{ fill: var(--pink); }
 
-/* 금액 표시 */
-.lp-clover span{
+/* 당첨 금액 표시 */
+.lp-clover .amount{
   position:absolute;
   inset:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
+  font-weight:1000;
+  font-size: 28px;
   color:#fff;
-  font-size:18px;
 }
 
-/* ===== 안내 ===== */
+/* 안내 텍스트 */
 .lp-help{
-  margin-top:16px;
-  font-size:14px;
+  margin-top: 46px;
+  font-size: 24px;
+  font-weight: 800;
   color:#777;
 }
 
-/* ===== 팝업 ===== */
-.lp-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:999;
-}
+/* ===== Modal ===== */
+.lp-modal{ display:none; position:fixed; inset:0; z-index:999; }
 .lp-modal.show{ display:block; }
-
-.lp-modal-dim{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.35);
-}
+.lp-modal-dim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
 
 .lp-modal-card{
   position:absolute;
   left:50%; top:50%;
   transform:translate(-50%,-50%);
-  background:#ff86b6;
+  width:min(92vw, 520px);
+  padding: 34px 28px 22px;
+  background: var(--pink);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
   color:#fff;
-  padding:28px;
-  width:min(90%,420px);
-  border-radius:18px;
-  box-shadow:0 20px 40px rgba(0,0,0,.3);
+  text-align:center;
 }
 
-.lp-modal-card h3{
-  margin:0 0 12px;
-  font-size:22px;
+.lp-modal-title{
+  font-size: 34px;
+  font-weight: 1000;
+  margin-bottom: 10px;
 }
 
-.lp-modal-card b{
-  color:#7CFF5B;
-  font-size:26px;
+.lp-modal-desc{
+  font-size: 28px;
+  font-weight: 1000;
+  margin-bottom: 16px;
 }
 
-.lp-modal-card button{
-  margin-top:16px;
-  width:100%;
-  height:44px;
-  border-radius:12px;
+#lpModalAmount{
+  color: var(--green);
+  font-size: 34px;
+}
+
+.lp-modal-line{
+  height: 4px;
+  background: rgba(255,255,255,.92);
+  border-radius: 999px;
+  margin: 14px 0 18px;
+}
+
+.lp-modal-fine{
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+  opacity: .95;
+}
+
+.lp-modal-btn{
+  margin-top: 18px;
+  width: 100%;
+  height: 52px;
+  border-radius: 14px;
   border:0;
-  font-weight:800;
-  color:#ff4f9a;
+  background: rgba(255,255,255,.95);
+  color: var(--pinkDeep);
+  font-weight: 1000;
+  font-size: 18px;
   cursor:pointer;
 }
 
-/* ===== 반응형 ===== */
-@media(max-width:600px){
-  .lp-clover{
-    width:60px;
-    height:60px;
+/* 반응형 */
+@media (max-width: 720px){
+  .lp-title{ font-size: 30px; }
+  .lp-board{
+    grid-template-columns: repeat(4, minmax(56px, 96px));
+    gap: 22px;
   }
+  .lp-clover{ width:96px; height:96px; }
+  .lp-help{ font-size: 18px; }
+  .lp-clover .amount{ font-size: 18px; }
 }
-
