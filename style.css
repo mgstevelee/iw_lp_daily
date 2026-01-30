@@ -1,101 +1,111 @@
 :root{
-  --blue:#79d2ff;
-  --pink:#ff86b6;
-  --pinkDeep:#ff4f9a;
-  --green:#7CFF5B;
-  --text:#111;
+  --pink:#FF86B4;
+  --blue:#74D0FF;
+  --gold:#FFD54F;
 }
 
-*{ box-sizing:border-box; }
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif;
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;background:#f7f7f7}
+
+/* ✅ 전체 씬: 반응형 */
+.lp-scene{
+  width:min(1200px, 96vw);
+  margin:24px auto;
+  position:relative;
+
+  /* 보드 비율(1132x605) 기반 */
+  aspect-ratio: 1132 / 605;
   background:#fff;
-  color:var(--text);
 }
 
-.lp-wrap{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 16px 72px;
-  text-align:center;
+/* ✅ 배경 SVG 레이어 */
+.lp-bg{
+  position:absolute; inset:0;
 }
 
-.lp-title{
-  margin:0 0 36px;
-  font-size: 44px;
-  font-weight: 1000;
-  letter-spacing:-0.03em;
-}
-
-.lp-sub{
-  margin-top: 8px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #555;
-}
-
-.lp-sub strong{
-  color: var(--pink);
-  font-weight: 800;
-}
-
-
-/* ✅ 2–4–4 강제 배치 */
+/* 보드 */
 .lp-board{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(72px, 140px));
-  gap: 46px;
-  justify-content:center;
-  align-items:center;
-
-  grid-template-areas:
-    ".  a  b  ."
-    "c  d  e  f"
-    "g  h  i  j";
+  position:absolute;
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  width:92%;
+  height:auto;
 }
 
-.lp-clover.c1{ grid-area:a; }
-.lp-clover.c2{ grid-area:b; }
-.lp-clover.c3{ grid-area:c; }
-.lp-clover.c4{ grid-area:d; }
-.lp-clover.c5{ grid-area:e; }
-.lp-clover.c6{ grid-area:f; }
-.lp-clover.c7{ grid-area:g; }
-.lp-clover.c8{ grid-area:h; }
-.lp-clover.c9{ grid-area:i; }
-.lp-clover.c10{ grid-area:j; }
+/* 나무 공통 */
+.lp-tree{
+  position:absolute;
+  bottom:2%;
+  height:92%;
+  width:auto;
+  pointer-events:none;
+}
+.lp-tree--left{ left:-2%; }
+.lp-tree--right{ right:-4%; }
 
-/* 버튼 기본 */
+/* ✅ 클로버 오버레이: “핑크 보드 안쪽”에만 올라가게 */
+.lp-overlay{
+  position:absolute;
+
+  /* 🔧 여기 4개 값이 “핑크 선 안쪽” 정렬의 핵심 */
+  left: 18%;
+  top: 16%;
+  width: 64%;
+  height: 72%;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  pointer-events:auto;
+}
+
+/* ✅ 클로버 그리드: 3줄(2/4/4) */
+.lp-clover-grid{
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: clamp(14px, 2.2vw, 26px);
+  padding: clamp(14px, 2.6vw, 28px);
+  place-items:center;
+}
+
+/* 첫 줄 2개를 가운데로 */
+.lp-clover-grid > .lp-clover:nth-child(1){ grid-column:2; grid-row:1; }
+.lp-clover-grid > .lp-clover:nth-child(2){ grid-column:3; grid-row:1; }
+
+/* 2줄차 4개 */
+.lp-clover-grid > .lp-clover:nth-child(3){ grid-column:1; grid-row:2; }
+.lp-clover-grid > .lp-clover:nth-child(4){ grid-column:2; grid-row:2; }
+.lp-clover-grid > .lp-clover:nth-child(5){ grid-column:3; grid-row:2; }
+.lp-clover-grid > .lp-clover:nth-child(6){ grid-column:4; grid-row:2; }
+
+/* 3줄차 4개 */
+.lp-clover-grid > .lp-clover:nth-child(7){ grid-column:1; grid-row:3; }
+.lp-clover-grid > .lp-clover:nth-child(8){ grid-column:2; grid-row:3; }
+.lp-clover-grid > .lp-clover:nth-child(9){ grid-column:3; grid-row:3; }
+.lp-clover-grid > .lp-clover:nth-child(10){ grid-column:4; grid-row:3; }
+
+/* ✅ 버튼 기본 */
 .lp-clover{
-  width: 140px;
-  height: 140px;
+  width: clamp(62px, 8vw, 120px);
+  height: clamp(62px, 8vw, 120px);
   border:0;
-  background: transparent;
+  background:transparent;
   padding:0;
   cursor:pointer;
   position:relative;
-  transform-origin: 50% 50%;
+  transform-origin:50% 50%;
 }
 
-/* ✅ transform 충돌 방지용 래퍼 */
-.lp-clover .clover-wrap{
-  width:100%;
-  height:100%;
-  display:block;
-}
+/* SVG wrap */
+.lp-clover .clover-wrap{width:100%;height:100%;display:block}
+.lp-clover svg{width:100%;height:100%;display:block;fill:var(--blue);transition:fill .2s ease}
 
-/* ✅ SVG는 항상 90도 오른쪽으로 고정 */
-.lp-clover svg{
-  width:100%;
-  height:100%;
-  display:block;
-  fill: var(--blue);
-  transform: rotate(90deg); /* ✅ 이게 “방향” */
-  transition: fill .2s ease;
-}
-
-/* ✅ 회전 애니메이션은 버튼에만 적용 (방향 고정 유지) */
+/* ✅ 클릭 회전(버튼만) */
 .lp-clover.spin{
   animation: spinStop 3s cubic-bezier(.12,.72,.08,1) forwards;
 }
@@ -104,126 +114,76 @@ body{
   100%{ transform: rotate(2520deg); }
 }
 
+/* 당첨(핑크) */
 .lp-clover.win svg{ fill: var(--pink); }
 
-/* 당첨 금액 표시 */
+/* 금액 텍스트 */
 .lp-clover .amount{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:1000;
-  font-size: 28px;
+  position:absolute; inset:0;
+  display:grid; place-items:center;
   color:#fff;
+  font-weight:900;
+  font-size: clamp(18px, 2.2vw, 28px);
+  text-shadow:0 2px 0 rgba(0,0,0,.08);
 }
 
-/* 안내 텍스트 */
-.lp-help{
-  margin-top: 46px;
-  font-size: 24px;
-  font-weight: 800;
-  color:#777;
-}
-
-/* ===== Modal ===== */
-.lp-modal{ display:none; position:fixed; inset:0; z-index:999; }
-.lp-modal.show{ display:block; }
-.lp-modal-dim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
-
-.lp-modal-card{
-  position:absolute;
-  left:50%; top:50%;
-  transform:translate(-50%,-50%);
-  width:min(92vw, 520px);
-  padding: 34px 28px 22px;
-  background: var(--pink);
-  border-radius: 22px;
-  box-shadow: 0 24px 60px rgba(0,0,0,.28);
-  color:#fff;
-  text-align:center;
-}
-
-.lp-modal-title{
-  font-size: 34px;
-  font-weight: 1000;
-  margin-bottom: 10px;
-}
-
-.lp-modal-desc{
-  font-size: 28px;
-  font-weight: 1000;
-  margin-bottom: 16px;
-}
-
-#lpModalAmount{
-  color: var(--green);
-  font-size: 34px;
-}
-
-.lp-modal-line{
-  height: 4px;
-  background: rgba(255,255,255,.92);
-  border-radius: 999px;
-  margin: 14px 0 18px;
-}
-
-.lp-modal-fine{
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.35;
-  opacity: .95;
-}
-
-.lp-modal-btn{
-  margin-top: 18px;
-  width: 100%;
-  height: 52px;
-  border-radius: 14px;
-  border:0;
-  background: rgba(255,255,255,.95);
-  color: var(--pinkDeep);
-  font-weight: 1000;
-  font-size: 18px;
-  cursor:pointer;
-}
-
-/* 💎 5,000원 이상 공통 효과 */
-.lp-clover.big-win svg{
-  fill: #ffd54f; /* 골드 */
-}
-
+/* ✅ 고액(big-win): 5천 이상 & 1만원 동일 */
+.lp-clover.big-win svg{ fill: var(--gold); }
 .lp-clover.big-win{
   animation: bigWinPulse .7s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 14px rgba(255,215,64,.85));
 }
-
 @keyframes bigWinPulse{
-  0%{
-    transform: scale(1) rotate(0deg);
-  }
-  100%{
-    transform: scale(1.1) rotate(3deg);
-  }
+  0%{ transform: scale(1) rotate(0deg); }
+  100%{ transform: scale(1.1) rotate(3deg); }
 }
-
-/* 금액 텍스트도 강조 */
 .lp-clover.big-win .amount{
-  font-size: 28px;
-  font-weight: 900;
-  color: #fff3b0;
-  text-shadow: 0 0 10px rgba(255,215,64,.9);
+  color:#fff3b0;
+  text-shadow:0 0 10px rgba(255,215,64,.9);
 }
 
-/* 반응형 */
-@media (max-width: 720px){
-  .lp-title{ font-size: 30px; }
-  .lp-board{
-    grid-template-columns: repeat(4, minmax(56px, 96px));
-    gap: 22px;
+/* 안내 문구 */
+.lp-help{
+  margin-top: 10px;
+  font-size: clamp(12px, 1.8vw, 16px);
+  color:#777;
+}
+
+/* ✅ 모달 */
+.lp-modal{ position:fixed; inset:0; display:none; z-index:9999; }
+.lp-modal.show{ display:block; }
+.lp-modal__dim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.lp-modal__card{
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  width:min(520px, 92vw);
+  background:#ff8fbf;
+  border-radius:18px;
+  padding:24px 22px;
+  box-shadow:0 18px 55px rgba(0,0,0,.22);
+  text-align:center;
+  color:#fff;
+}
+.lp-modal__title{ font-size:24px; font-weight:900; margin-bottom:10px; }
+.lp-modal__desc{ font-size:22px; font-weight:800; margin-bottom:10px; }
+.lp-modal__amount{ color:#b6ff6a; font-weight:900; }
+.lp-modal__fineprint{ font-size:14px; opacity:.95; line-height:1.35; margin:12px 0 18px; }
+.lp-modal__btn{
+  border:0; cursor:pointer;
+  padding:12px 18px;
+  border-radius:12px;
+  background:#fff;
+  font-weight:900;
+}
+
+/* 작은 화면에서 나무가 너무 커 보이면 살짝 줄이기 */
+@media (max-width: 520px){
+  .lp-tree{ height:82%; }
+  .lp-overlay{
+    left: 15%;
+    width: 70%;
+    top: 18%;
+    height: 70%;
   }
-  .lp-clover{ width:96px; height:96px; }
-  .lp-help{ font-size: 18px; }
-  .lp-clover .amount{ font-size: 18px; }
 }
-
