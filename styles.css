@@ -42,14 +42,16 @@ body{
 }
 
 /* ✅ 보드+클로버 그룹 (같이 움직임) */
+/* 기본(PC/태블릿) */
 .lp-stage{
   position:absolute;
   left:50%;
   top:50%;
-  transform: translate(-50%,-50%) scale(.86); /* 여기만 조절 */
+  transform: translate(-50%,-50%) scale(.92);
   transform-origin:center;
   width:100%;
   height:100%;
+  z-index:2;
 }
 
 /* ✅ 보드는 stage에 꽉 차게 */
@@ -202,19 +204,17 @@ body{
   font-weight:900;
 }
 
-/* 작은 화면에서 나무가 너무 커 보이면 살짝 줄이기 */
-@media (max-width: 520px){
-  .lp-tree{ height:82%; }
+/* ✅ 모바일: 더 크게 */
+@media (max-width: 600px){
+  body{ padding: 8px; }
 
-  .lp-board{
-    transform: translate(-50%,-50%) scale(.90);
+  .lp-scene{
+    height: 94svh;     /* 조금 더 크게 */
+    max-width: 100vw;  /* 좌우 꽉 */
+    border-radius: 0;  /* 풀스크린 느낌(원하면 유지해도 됨) */
   }
 
-  .lp-overlay{
-    left: 18%;
-    top: 22%;
-    width: 64%;
-    height: 62%;
+  .lp-stage{
+    transform: translate(-50%,-50%) scale(1);
   }
 }
-
