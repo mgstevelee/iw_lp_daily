@@ -18,20 +18,29 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR"
   background:#fff;
 }
 
-/* ✅ 배경 SVG 레이어 */
+/* ✅ 배경 레이어 */
 .lp-bg{
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
 }
 
-/* 보드 */
-.lp-board{
+/* ✅ 보드+클로버 그룹 (같이 움직임) */
+.lp-stage{
   position:absolute;
   left:50%;
   top:50%;
-  transform: translate(-50%,-50%) scale(.86); /* ✅ 보드 줄이기 핵심 */
-  width:100%;
-  height:auto;
+  transform: translate(-50%,-50%) scale(.86); /* 여기만 조절 */
   transform-origin:center;
+  width:100%;
+  height:100%;
+}
+
+/* ✅ 보드는 stage에 꽉 차게 */
+.lp-board{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
 }
 
 /* 나무 공통 */
@@ -48,18 +57,17 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR"
 /* ✅ 클로버 오버레이: “핑크 보드 안쪽”에만 올라가게 */
 .lp-overlay{
   position:absolute;
-
-  /* ✅ 보드 안쪽(핑크 라인 안) 기준으로 더 타이트하게 */
-  left: 22%;
-  top: 20%;
-  width: 56%;
-  height: 64%;
+  left: 15.5%;
+  top: 15%;
+  width: 69%;
+  height: 72%;
 
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
 }
+
 
 /* ✅ 클로버 그리드: 3줄(2/4/4) */
 .lp-clover-grid{
