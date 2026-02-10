@@ -4,18 +4,35 @@
   --gold:#FFD54F;
 }
 
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;background:#f7f7f7}
+html, body { height: 100%; }
 
-/* ✅ 전체 씬: 반응형 */
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;
+  background:#f7f7f7;
+
+  /* ✅ 모바일에서 화면 가운데로 크게 보여주기 */
+  min-height: 100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px;
+}
+
+/* ✅ 씬을 “뷰포트 높이 기준”으로 키움 */
 .lp-scene{
-  width:min(1200px, 96vw);
-  margin:24px auto;
   position:relative;
-
-  /* 보드 비율(1132x605) 기반 */
-  aspect-ratio: 1132 / 605;
   background:#fff;
+  overflow:hidden;
+  border-radius:10px;
+
+  /* ✅ 핵심: 높이를 먼저 92svh로 잡고, 비율대로 width 자동 계산 */
+  height: 92svh;
+  width: auto;
+  aspect-ratio: 1132 / 605;
+
+  /* ✅ 혹시 너무 넓어지면 화면 너비로 제한 */
+  max-width: 96vw;
 }
 
 /* ✅ 배경 레이어 */
