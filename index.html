@@ -17,7 +17,7 @@
         <path d="M193.66 737.69H128.18L135.84 315.4H186L193.66 737.69Z" fill="#7A3B03"/>
         <path d="M160.92 252.62C249.794 252.62 321.84 196.069 321.84 126.31C321.84 56.5509 249.794 0 160.92 0C72.0463 0 0 56.5509 0 126.31C0 196.069 72.0463 252.62 160.92 252.62Z" fill="#53D348"/>
         <path d="M160.92 375.74C249.794 375.74 321.84 319.189 321.84 249.43C321.84 179.671 249.794 123.12 160.92 123.12C72.0463 123.12 0 179.671 0 249.43C0 319.189 72.0463 375.74 160.92 375.74Z" fill="#53D348"/>
-        <path d="M160.92 498.86C249.794 498.86 321.84 442.309 321.84 372.55C321.84 302.791 249.794 246.24 160.92 246.24C72.0463 0 0 302.791 0 372.55C0 442.309 72.0463 498.86 160.92 498.86Z" fill="#53D348"/>
+        <path d="M160.92 498.86C249.794 498.86 321.84 442.309 321.84 372.55C321.84 302.791 249.794 246.24 160.92 246.24C72.0463 246.24 0 302.791 0 372.55C0 442.309 72.0463 498.86 160.92 498.86Z" fill="#53D348"/>
       </g>
       <defs>
         <clipPath id="treeLClip">
@@ -39,9 +39,6 @@
       </defs>
     </svg>
 
-    <!-- ✅ 보드+클로버를 한 그룹으로 -->
-   <div class="lp-stage" aria-hidden="false">
-     
     <!-- 보드 (1132x605) -->
     <svg class="lp-board" viewBox="0 0 1132 605" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#boardClip)">
@@ -63,29 +60,37 @@
     </svg>
   </div>
 
-  <!-- ✅ 클로버가 올라가는 레이어 (이제 보드와 같은 그룹 안) -->
-  <div class="lp-overlay">
-    <div class="lp-clover-grid" aria-label="네잎클로버 보드">
-      <!-- ✅ 10개 (첫 줄 2개, 둘째 4개, 셋째 4개) -->
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+  <!-- ✅ UI 레이어 -->
+  <div class="lp-ui">
+    <h1 class="lp-title">오늘의 행운을 뽑아보세요!!</h1>
+    <div class="lp-sub">최대 <b>1만원</b> 당첨!</div>
 
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+    <!-- ✅ 클로버(보드 안) -->
+    <div class="lp-overlay">
+      <div class="lp-clover-grid" aria-label="네잎클로버 보드">
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
 
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+      </div>
+
+      <div class="lp-help" id="lpHelp">네잎클로버를 눌러 오늘의 행운을 뽑아보세요!</div>
+      <div class="lp-badges">
+        <span>🎉 5,000원 이상이면 색/애니메이션 다르게</span>
+        <span>💎 10,000원 당첨 시 전용 이펙트</span>
+      </div>
     </div>
-
-    <div class="lp-help" id="lpHelp">네잎클로버를 눌러 오늘의 행운을 뽑아보세요!</div>
-  </div>
   </div>
 
-  <!-- ✅ 기존 팝업(모달) -->
+  <!-- ✅ 모달 -->
   <div class="lp-modal" id="lpModal" aria-hidden="true">
     <div class="lp-modal__dim" data-close></div>
     <div class="lp-modal__card" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle">
