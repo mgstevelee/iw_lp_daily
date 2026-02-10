@@ -218,3 +218,74 @@ body{
     transform: translate(-50%,-50%) scale(1);
   }
 }
+
+/* =========================
+   MOBILE LAYOUT OVERRIDE
+   ========================= */
+@media (max-width: 600px){
+
+  /* 1) 씬을 모바일 화면에 꽉 차게 */
+  body{
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .lp-scene{
+    width: 100vw;
+    height: 100svh;
+    max-width: none;
+    aspect-ratio: auto;   /* ✅ 모바일은 비율 고정 해제 (세로 활용) */
+    border-radius: 0;
+    background:#fff;
+  }
+
+  /* 2) 배경 전체를 씬에 맞춤 */
+  .lp-bg{ position:absolute; inset:0; }
+
+  /* 3) 나무: 상단 좌우로, 보드와 겹치지 않게 */
+  .lp-tree{
+    top: 4%;
+    bottom: auto;        /* ✅ 기존 bottom 제거 */
+    height: 28svh;       /* ✅ 모바일에서 작게 */
+    width: auto;
+    z-index: 1;          /* ✅ 보드 뒤(또는 아래) */
+  }
+  .lp-tree--left{ left: 2%; }
+  .lp-tree--right{ right: 2%; }
+
+  /* 4) 보드: 아래로 내려서 나무와 분리 */
+  .lp-board{
+    left: 50%;
+    top: 55%;            /* ✅ 아래로 */
+    transform: translate(-50%, -50%);
+    width: 94vw;         /* ✅ 화면 너비 맞춤 */
+    height: auto;
+    z-index: 2;
+  }
+
+  /* 5) 클로버 오버레이: 보드 내부 영역에 맞춰 재조정 */
+  .lp-overlay{
+    left: 12%;
+    top: 40%;            /* ✅ 보드가 내려갔으니 오버레이도 같이 내려감 */
+    width: 76%;
+    height: 46%;
+  }
+
+  /* 6) 클로버 크기/간격 모바일 튜닝 */
+  .lp-clover{
+    width: clamp(52px, 14vw, 80px);
+    height: clamp(52px, 14vw, 80px);
+  }
+  .lp-clover-grid{
+    gap: clamp(10px, 3vw, 18px);
+    padding: clamp(10px, 3vw, 18px);
+  }
+
+  /* 7) 안내문구가 보드 밖으로 밀리면 줄여줌 */
+  .lp-help{
+    font-size: 14px;
+    margin-top: 6px;
+  }
+}
+
