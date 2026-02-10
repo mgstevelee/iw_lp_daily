@@ -4,65 +4,40 @@
   --gold:#FFD54F;
 }
 
-html, body { height: 100%; }
-
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;
-  background:#f7f7f7;
-
-  /* ✅ 모바일에서 화면 가운데로 크게 보여주기 */
-  min-height: 100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 12px;
+  background:#4b3323; /* (스크린샷처럼 브라우저 배경 어두운 톤이면 보기 좋음) */
 }
 
-/* ✅ 씬을 “뷰포트 높이 기준”으로 키움 */
+/* ✅ 전체 씬: 데스크탑 기본은 “보드 비율” */
 .lp-scene{
+  width:min(1200px, 96vw);
+  margin:24px auto;
   position:relative;
   background:#fff;
+  border-radius:16px;
   overflow:hidden;
-  border-radius:10px;
 
-  /* ✅ 핵심: 높이를 먼저 92svh로 잡고, 비율대로 width 자동 계산 */
-  height: 92svh;
-  width: auto;
-  aspect-ratio: 1132 / 605;
-
-  /* ✅ 혹시 너무 넓어지면 화면 너비로 제한 */
-  max-width: 96vw;
+  aspect-ratio: 1132 / 605; /* 데스크탑용 */
 }
 
 /* ✅ 배경 레이어 */
-.lp-bg{
-  position:absolute;
-  inset:0;
-}
+.lp-bg{ position:absolute; inset:0; z-index:1; }
+.lp-ui{ position:absolute; inset:0; z-index:2; }
 
-/* ✅ 보드+클로버 그룹 (같이 움직임) */
-/* 기본(PC/태블릿) */
-.lp-stage{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%,-50%) scale(.92);
-  transform-origin:center;
-  width:100%;
-  height:100%;
-  z-index:2;
-}
-
-/* ✅ 보드는 stage에 꽉 차게 */
+/* 보드 */
 .lp-board{
   position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  width:92%;
+  height:auto;
 }
 
-/* 나무 공통 */
+/* 나무 */
 .lp-tree{
   position:absolute;
   bottom:2%;
@@ -73,20 +48,38 @@ body{
 .lp-tree--left{ left:-2%; }
 .lp-tree--right{ right:-4%; }
 
-/* ✅ 클로버 오버레이: “핑크 보드 안쪽”에만 올라가게 */
+/* 타이틀 */
+.lp-title{
+  margin:0;
+  position:absolute;
+  left:50%;
+  top:6%;
+  transform:translateX(-50%);
+  font-size:clamp(22px, 2.6vw, 34px);
+  font-weight:900;
+  color:#111;
+  text-align:center;
+  white-space:nowrap;
+}
+.lp-sub{
+  position:absolute;
+  left:50%;
+  top:14%;
+  transform:translateX(-50%);
+  font-size:clamp(14px, 1.6vw, 18px);
+  color:#555;
+}
+.lp-sub b{ color: #111; }
+
+/* ✅ 클로버 오버레이: “핑크 보드 안쪽”에 맞추는 영역 */
 .lp-overlay{
   position:absolute;
-  left: 15.5%;
-  top: 15%;
-  width: 69%;
-  height: 72%;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
+  /* 🔧 여기 4개가 핵심(데스크탑 기준) */
+  left: 18%;
+  top: 20%;
+  width: 64%;
+  height: 66%;
 }
-
 
 /* ✅ 클로버 그리드: 3줄(2/4/4) */
 .lp-clover-grid{
@@ -95,12 +88,12 @@ body{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: clamp(14px, 2.2vw, 26px);
-  padding: clamp(14px, 2.6vw, 28px);
+  gap: clamp(12px, 2vw, 24px);
+  padding: clamp(12px, 2.2vw, 26px);
   place-items:center;
 }
 
-/* 첫 줄 2개를 가운데로 */
+/* 첫 줄 2개 가운데 */
 .lp-clover-grid > .lp-clover:nth-child(1){ grid-column:2; grid-row:1; }
 .lp-clover-grid > .lp-clover:nth-child(2){ grid-column:3; grid-row:1; }
 
@@ -116,10 +109,10 @@ body{
 .lp-clover-grid > .lp-clover:nth-child(9){ grid-column:3; grid-row:3; }
 .lp-clover-grid > .lp-clover:nth-child(10){ grid-column:4; grid-row:3; }
 
-/* ✅ 버튼 기본 */
+/* ✅ 버튼 */
 .lp-clover{
-  width: clamp(62px, 8vw, 120px);
-  height: clamp(62px, 8vw, 120px);
+  width: clamp(54px, 7vw, 110px);
+  height: clamp(54px, 7vw, 110px);
   border:0;
   background:transparent;
   padding:0;
@@ -128,11 +121,10 @@ body{
   transform-origin:50% 50%;
 }
 
-/* SVG wrap */
 .lp-clover .clover-wrap{width:100%;height:100%;display:block}
 .lp-clover svg{width:100%;height:100%;display:block;fill:var(--blue);transition:fill .2s ease}
 
-/* ✅ 클릭 회전(버튼만) */
+/* 회전 애니메이션 */
 .lp-clover.spin{
   animation: spinStop 3s cubic-bezier(.12,.72,.08,1) forwards;
 }
@@ -141,20 +133,20 @@ body{
   100%{ transform: rotate(2520deg); }
 }
 
-/* 당첨(핑크) */
+/* 당첨 */
 .lp-clover.win svg{ fill: var(--pink); }
 
-/* 금액 텍스트 */
+/* 금액 */
 .lp-clover .amount{
   position:absolute; inset:0;
   display:grid; place-items:center;
   color:#fff;
   font-weight:900;
-  font-size: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(16px, 2vw, 26px);
   text-shadow:0 2px 0 rgba(0,0,0,.08);
 }
 
-/* ✅ 고액(big-win): 5천 이상 & 1만원 동일 */
+/* ✅ big-win(5천 이상) + jackpot(1만원도 동일) */
 .lp-clover.big-win svg{ fill: var(--gold); }
 .lp-clover.big-win{
   animation: bigWinPulse .7s ease-in-out infinite alternate;
@@ -169,10 +161,29 @@ body{
   text-shadow:0 0 10px rgba(255,215,64,.9);
 }
 
-/* 안내 문구 */
+/* 안내 */
 .lp-help{
-  margin-top: 10px;
-  font-size: clamp(12px, 1.8vw, 16px);
+  position:absolute;
+  left:50%;
+  bottom:6%;
+  transform:translateX(-50%);
+  width:100%;
+  text-align:center;
+  font-size: clamp(12px, 1.6vw, 16px);
+  color:#777;
+}
+
+.lp-badges{
+  position:absolute;
+  left:50%;
+  bottom:1.6%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+  width:100%;
+  font-size:clamp(11px, 1.4vw, 14px);
   color:#777;
 }
 
@@ -181,8 +192,7 @@ body{
 .lp-modal.show{ display:block; }
 .lp-modal__dim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
 .lp-modal__card{
-  position:absolute;
-  left:50%; top:50%;
+  position:absolute; left:50%; top:50%;
   transform:translate(-50%,-50%);
   width:min(520px, 92vw);
   background:#ff8fbf;
@@ -204,88 +214,47 @@ body{
   font-weight:900;
 }
 
-/* ✅ 모바일: 더 크게 */
-@media (max-width: 600px){
-  body{ padding: 8px; }
-
-  .lp-scene{
-    height: 94svh;     /* 조금 더 크게 */
-    max-width: 100vw;  /* 좌우 꽉 */
-    border-radius: 0;  /* 풀스크린 느낌(원하면 유지해도 됨) */
-  }
-
-  .lp-stage{
-    transform: translate(-50%,-50%) scale(1);
-  }
-}
-
 /* =========================
-   MOBILE LAYOUT OVERRIDE
+   ✅ 모바일: 나무를 상단 좌우로,
+   보드를 아래로 내려서 겹침 제거
    ========================= */
-@media (max-width: 600px){
-
-  /* 1) 씬을 모바일 화면에 꽉 차게 */
-  body{
-    padding: 0;
-    align-items: stretch;
-    justify-content: stretch;
-  }
-
+@media (max-width: 700px){
   .lp-scene{
-    width: 100vw;
-    height: 100svh;
-    max-width: none;
-    aspect-ratio: auto;   /* ✅ 모바일은 비율 고정 해제 (세로 활용) */
-    border-radius: 0;
-    background:#fff;
+    aspect-ratio: auto;
+    height: min(92vh, 860px);
   }
 
-  /* 2) 배경 전체를 씬에 맞춤 */
-  .lp-bg{ position:absolute; inset:0; }
-
-  /* 3) 나무: 상단 좌우로, 보드와 겹치지 않게 */
+  /* 나무: 위로 올리고 크기 줄이기 */
   .lp-tree{
-    top: 4%;
-    bottom: auto;        /* ✅ 기존 bottom 제거 */
-    height: 28svh;       /* ✅ 모바일에서 작게 */
-    width: auto;
-    z-index: 1;          /* ✅ 보드 뒤(또는 아래) */
+    top: 2%;
+    bottom: auto;
+    height: 36%;
   }
-  .lp-tree--left{ left: 2%; }
-  .lp-tree--right{ right: 2%; }
+  .lp-tree--left{ left: 6%; }
+  .lp-tree--right{ right: 6%; }
 
-  /* 4) 보드: 아래로 내려서 나무와 분리 */
+  /* 보드: 아래로 */
   .lp-board{
-    left: 50%;
-    top: 55%;            /* ✅ 아래로 */
-    transform: translate(-50%, -50%);
-    width: 94vw;         /* ✅ 화면 너비 맞춤 */
-    height: auto;
-    z-index: 2;
+    top: 58%;
+    width: 92%;
   }
 
-  /* 5) 클로버 오버레이: 보드 내부 영역에 맞춰 재조정 */
+  /* 타이틀도 위쪽 */
+  .lp-title{ top: 42%; white-space:normal; }
+  .lp-sub{ top: 49%; }
+
+  /* 오버레이: 보드 안으로 다시 맞춤 */
   .lp-overlay{
     left: 12%;
-    top: 40%;            /* ✅ 보드가 내려갔으니 오버레이도 같이 내려감 */
+    top: 52%;
     width: 76%;
-    height: 46%;
+    height: 40%;
   }
 
-  /* 6) 클로버 크기/간격 모바일 튜닝 */
-  .lp-clover{
-    width: clamp(52px, 14vw, 80px);
-    height: clamp(52px, 14vw, 80px);
-  }
-  .lp-clover-grid{
-    gap: clamp(10px, 3vw, 18px);
-    padding: clamp(10px, 3vw, 18px);
-  }
-
-  /* 7) 안내문구가 보드 밖으로 밀리면 줄여줌 */
   .lp-help{
-    font-size: 14px;
-    margin-top: 6px;
+    bottom: 10%;
+  }
+  .lp-badges{
+    bottom: 4%;
   }
 }
-
