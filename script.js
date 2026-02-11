@@ -43,9 +43,13 @@ function formatWon(n){
 }
 
 function todayKeyKST(){
+  // KST 기준 YYYY-MM-DD
   const now = new Date();
-  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
-  return kst.toISOString().slice(0,10);
+  const kst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+  const y = kst.getFullYear();
+  const m = String(kst.getMonth() + 1).padStart(2, '0');
+  const d = String(kst.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }
 
 const LS_KEY = 'lpPlayedDate';
