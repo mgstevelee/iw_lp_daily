@@ -43,8 +43,8 @@ body{
 /* 나무 */
 .lp-tree{
   position:absolute;
-  bottom:2%;
-  height:92%;
+  bottom:5%;
+  height:70%;
   width:auto;
   pointer-events:none;
 }
@@ -58,21 +58,12 @@ body{
   left:50%;
   top:4%;
   transform:translateX(-50%);
-  font-size: clamp(18px, 5vw, 28px);
+  font-size: clamp(18px, 5vw, 50px);
   font-weight:900;
   color:#111;
   text-align:center;
   white-space:nowrap;
 }
-.lp-sub{
-  position:absolute;
-  left:50%;
-  top:10%;
-  transform:translateX(-50%);
-  font-size:clamp(16px, 1.6vw, 24px);
-  color:#555;
-}
-.lp-sub b{ color:#111; }
 
 
 /* ✅ 클로버 레이어: SVG와 1:1로 겹침 */
@@ -86,8 +77,8 @@ body{
 /* 버튼 */
 .lp-clover{
   position:absolute;
-  width: clamp(63px, 6.5vw, 130px);
-  height: clamp(63px, 6.5vw, 130px);
+  width: clamp(126px, 13vw, 260px);
+  height: clamp(126px, 13vw, 260px);
   transform: translate(-50%, -50%);
   pointer-events:auto;
 
@@ -103,7 +94,7 @@ body{
   width:100%;
   height:100%;
   display:block;
-  fill:var(--blue);
+  fill:#3EE6FD;
   transition:fill .2s ease;
   transform-origin:50% 50%;
 }
@@ -150,12 +141,23 @@ body{
 .lp-help{
   position:absolute;
   left:50%;
-  bottom:1%;                  /* 🔥 보드와 안 겹치게 더 아래로 */
+  bottom: 1%;                 /* 하단에 딱 붙임 */
   transform:translateX(-50%);
   width:100%;
+
+  /* ✅ 박스(보드 핑크) */
+  background: var(--pink);
+  padding: 16px 12px;        /* 띠 높이 */
   text-align:center;
-  font-size:clamp(16px, 1.2vw, 24px);
-  color:#777;
+
+  /* ✅ 텍스트 */
+  color:#fff;
+  font-weight:900;
+  font-size:clamp(13px, 1.2vw, 30px);
+  line-height:1.2;
+
+  /* ✅ 위쪽 경계선(보드 선 느낌) */
+  border-top: 6px solid var(--pink); /* 동일색이면 생략 가능 */
 }
 
 /* 모달 */
