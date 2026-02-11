@@ -19,11 +19,13 @@ body{
   width:min(1920px, 100vw);
   height:min(1080px, 100vh);
   aspect-ratio:16/9;
-
   margin:0 auto;
   background:#fff;
   overflow:hidden;
+
+  padding-bottom: 84px; /* ✅ lp-help 자리 확보 */
 }
+
 
 /* 레이어 */
 .lp-bg{ position:absolute; inset:0; z-index:1; }
@@ -141,24 +143,21 @@ body{
 .lp-help{
   position:absolute;
   left:50%;
-  bottom: 1%;                 /* 하단에 딱 붙임 */
+  bottom: max(10px, env(safe-area-inset-bottom)); /* ✅ 안전 여백 */
   transform:translateX(-50%);
-  width:100%;
+  width: calc(100% - 24px);   /* ✅ 양옆도 살짝 여백 */
+  margin: 0 auto;
 
-  /* ✅ 박스(보드 핑크) */
   background: var(--pink);
-  padding: 16px 12px;        /* 띠 높이 */
+  padding: 16px 12px;
   text-align:center;
-
-  /* ✅ 텍스트 */
   color:#fff;
   font-weight:900;
   font-size:clamp(13px, 1.2vw, 30px);
   line-height:1.2;
-
-  /* ✅ 위쪽 경계선(보드 선 느낌) */
-  border-top: 6px solid var(--pink); /* 동일색이면 생략 가능 */
+  border-radius: 12px;        /* ✅ 화면 끝에 붙지 않게 더 깔끔 */
 }
+
 
 /* 모달 */
 .lp-modal{ position:fixed; inset:0; display:none; z-index:9999; }
