@@ -78,8 +78,27 @@ function placeCloversFromSlots(){
   wireClicks(); // 너 기존 클릭 바인딩
 }
 
-window.addEventListener('load', placeCloversFromSlots);
-window.addEventListener('resize', placeCloversFromSlots);
+function rafPlace(){
+  requestAnimationFrame(placeCloversFromSlots);
+}
+
+window.addEventListener('load', rafPlace);
+window.addEventListener('resize', rafPlace);
+window.addEventListener('orientationchange', rafPlace);
+
+/* ✅ 모바일에서 주소창/뷰포트 변화도 잡기 */
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', rafPlace);
+  window.visualViewport.addEventListener('scroll', rafPlace);
+}
+
+/* ✅ 보드(svg) 크기/위치 변하면 자동으로 재배치 */
+const svg = document.getElementById('boardSvg');
+if (svg && 'ResizeObserver' in window) {
+  const ro = new ResizeObserver(() => rafPlace());
+  ro.observe(svg);
+}
+
 
 /* ---------- Modal ---------- */
 const modal = document.getElementById('lpModal');
