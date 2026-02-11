@@ -3,111 +3,106 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Little Pearly Playground</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>오늘의 행운 네잎클로버</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-<div class="lp-scene">
-  <!-- ✅ 배경 SVG 레이어 (보드 + 나무) -->
-  <div class="lp-bg" aria-hidden="true">
-    <!-- 왼쪽 나무 (322x738) -->
-    <svg class="lp-tree lp-tree--left" viewBox="0 0 322 738" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#treeLClip)">
-        <path d="M193.66 737.69H128.18L135.84 315.4H186L193.66 737.69Z" fill="#7A3B03"/>
-        <path d="M160.92 252.62C249.794 252.62 321.84 196.069 321.84 126.31C321.84 56.5509 249.794 0 160.92 0C72.0463 0 0 56.5509 0 126.31C0 196.069 72.0463 252.62 160.92 252.62Z" fill="#53D348"/>
-        <path d="M160.92 375.74C249.794 375.74 321.84 319.189 321.84 249.43C321.84 179.671 249.794 123.12 160.92 123.12C72.0463 123.12 0 179.671 0 249.43C0 319.189 72.0463 375.74 160.92 375.74Z" fill="#53D348"/>
-        <path d="M160.92 498.86C249.794 498.86 321.84 442.309 321.84 372.55C321.84 302.791 249.794 246.24 160.92 246.24C72.0463 246.24 0 302.791 0 372.55C0 442.309 72.0463 498.86 160.92 498.86Z" fill="#53D348"/>
-      </g>
-      <defs>
-        <clipPath id="treeLClip">
-          <rect width="321.84" height="737.69" fill="white"/>
-        </clipPath>
-      </defs>
-    </svg>
+  <main class="lp-scene">
+    <div class="lp-bg" aria-hidden="true">
 
-    <!-- 오른쪽 나무 (392x738) -->
-    <svg class="lp-tree lp-tree--right" viewBox="0 0 392 738" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#treeRClip)">
-        <path d="M225.4 737.69H159.91L167.58 315.4H217.73L225.4 737.69Z" fill="#7A3B03"/>
-        <path d="M146.36 489.58C163.63 490.08 179.86 484.25 193.74 473.74C203.86 479.44 215.3 483.35 227.64 484.93C276.69 491.23 321.31 458.45 327.31 411.71C327.62 409.28 327.82 406.86 327.91 404.45C360.74 395.3 386.29 368.39 390.72 333.84C394.67 303.03 380.85 273.85 356.92 255.74C371.25 242.77 381.11 225.14 383.71 204.89C388.08 170.84 370.74 138.79 342.03 121.46C341.77 114.8 341.04 108.02 339.82 101.17C328.62 38.37 280.05 -6.57001 231.34 0.789994C206.35 4.55999 186.18 21.37 173.97 45.32C171.8 44.88 169.59 44.52 167.35 44.23C122.66 38.49 81.6499 65.2 70.1799 105.35C34.1699 112.52 5.39995 140.69 0.669948 177.56C-3.12005 207.11 9.43995 235.16 31.5899 253.38C17.3799 266.33 7.60995 283.88 5.01995 304.03C-5.19753e-05 343.18 23.6799 379.7 60.3299 394.22C67.38 447.36 102.86 488.32 146.36 489.58Z" fill="#53D348"/>
-      </g>
-      <defs>
-        <clipPath id="treeRClip">
-          <rect width="391.39" height="737.69" fill="white"/>
-        </clipPath>
-      </defs>
-    </svg>
+      <!-- 왼쪽 나무 -->
+      <svg class="lp-tree lp-tree--left" viewBox="0 0 322 738" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#treeLClip)">
+          <path d="M193.66 737.69H128.18L135.84 315.4H186L193.66 737.69Z" fill="#7A3B03"/>
+          <path d="M160.92 252.62C249.794 252.62 321.84 196.069 321.84 126.31C321.84 56.5509 249.794 0 160.92 0C72.0463 0 0 56.5509 0 126.31C0 196.069 72.0463 252.62 160.92 252.62Z" fill="#53D348"/>
+          <path d="M160.92 375.74C249.794 375.74 321.84 319.189 321.84 249.43C321.84 179.671 249.794 123.12 160.92 123.12C72.0463 123.12 0 179.671 0 249.43C0 319.189 72.0463 375.74 160.92 375.74Z" fill="#53D348"/>
+          <path d="M160.92 498.86C249.794 498.86 321.84 442.309 321.84 372.55C321.84 302.791 249.794 246.24 160.92 246.24C72.0463 246.24 0 302.791 0 372.55C0 442.309 72.0463 498.86 160.92 498.86Z" fill="#53D348"/>
+        </g>
+        <defs>
+          <clipPath id="treeLClip">
+            <rect width="321.84" height="737.69" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
 
-    <!-- 보드 (1132x605) -->
-    <svg class="lp-board" viewBox="0 0 1132 605" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#boardClip)">
-        <path d="M3.5 600.72V283.14C3.5 238.65 39.57 202.57 84.07 202.57H1047.88C1092.37 202.57 1128.45 238.64 1128.45 283.14V600.72H3.5Z" fill="white" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M3.5 401.64H1128.44" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M565.97 3.5V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M284.74 600.72V84.07C284.74 39.58 320.81 3.5 365.31 3.5H766.65C811.14 3.5 847.22 39.57 847.22 84.07V600.72" fill="white"/>
-        <path d="M284.74 600.72V84.07C284.74 39.58 320.81 3.5 365.31 3.5H766.65C811.14 3.5 847.22 39.57 847.22 84.07V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M277.67 202.57H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M277.67 401.64H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M277.67 600.72H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-        <path d="M565.97 3.5V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
-      </g>
-      <defs>
-        <clipPath id="boardClip">
-          <rect width="1131.94" height="604.22" fill="white"/>
-        </clipPath>
-      </defs>
-    </svg>
-  </div>
+      <!-- 오른쪽 나무 -->
+      <svg class="lp-tree lp-tree--right" viewBox="0 0 392 738" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#treeRClip)">
+          <path d="M225.4 737.69H159.91L167.58 315.4H217.73L225.4 737.69Z" fill="#7A3B03"/>
+          <path d="M146.36 489.58C163.63 490.08 179.86 484.25 193.74 473.74C203.86 479.44 215.3 483.35 227.64 484.93C276.69 491.23 321.31 458.45 327.31 411.71C327.62 409.28 327.82 406.86 327.91 404.45C360.74 395.3 386.29 368.39 390.72 333.84C394.67 303.03 380.85 273.85 356.92 255.74C371.25 242.77 381.11 225.14 383.71 204.89C388.08 170.84 370.74 138.79 342.03 121.46C341.77 114.8 341.04 108.02 339.82 101.17C328.62 38.37 280.05 -6.57001 231.34 0.789994C206.35 4.55999 186.18 21.37 173.97 45.32C171.8 44.88 169.59 44.52 167.35 44.23C122.66 38.49 81.6499 65.2 70.1799 105.35C34.1699 112.52 5.39995 140.69 0.669948 177.56C-3.12005 207.11 9.43995 235.16 31.5899 253.38C17.3799 266.33 7.60995 283.88 5.01995 304.03C-5.19753e-05 343.18 23.6799 379.7 60.3299 394.22C67.38 447.36 102.86 488.32 146.36 489.58Z" fill="#53D348"/>
+        </g>
+        <defs>
+          <clipPath id="treeRClip">
+            <rect width="391.39" height="737.69" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
 
-  <!-- ✅ UI 레이어 -->
-  <div class="lp-ui">
-    <h1 class="lp-title">오늘의 행운을 뽑아보세요!!</h1>
-    <div class="lp-sub">최대 <b>1만원</b> 당첨!</div>
+      <!-- 보드 + 슬롯 -->
+      <svg id="boardSvg" class="lp-board" viewBox="0 0 1132 605" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#boardClip)">
+          <path d="M3.5 600.72V283.14C3.5 238.65 39.57 202.57 84.07 202.57H1047.88C1092.37 202.57 1128.45 238.64 1128.45 283.14V600.72H3.5Z" fill="white" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M3.5 401.64H1128.44" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M565.97 3.5V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M284.74 600.72V84.07C284.74 39.58 320.81 3.5 365.31 3.5H766.65C811.14 3.5 847.22 39.57 847.22 84.07V600.72" fill="white"/>
+          <path d="M284.74 600.72V84.07C284.74 39.58 320.81 3.5 365.31 3.5H766.65C811.14 3.5 847.22 39.57 847.22 84.07V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M277.67 202.57H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M277.67 401.64H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M277.67 600.72H847.21" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
+          <path d="M565.97 3.5V600.72" stroke="#FF86B4" stroke-width="7" stroke-miterlimit="10"/>
 
-    <!-- ✅ 클로버(보드 안) -->
-    <div class="lp-overlay">
-      <div class="lp-clover-grid" aria-label="네잎클로버 보드">
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+          <!-- ✅ 슬롯 10개: 각 칸 정중앙 좌표(보드 viewBox 기준) -->
+          <g id="cloverSlots" fill="transparent" stroke="transparent">
+            <!-- 1줄(상단 내부 2칸) -->
+            <circle class="slot" data-slot="1" cx="425.355" cy="103.035" r="46"></circle>
+            <circle class="slot" data-slot="2" cx="706.595" cy="103.035" r="46"></circle>
 
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
+            <!-- 2줄(가운데 4칸) -->
+            <circle class="slot" data-slot="3" cx="144.118" cy="302.105" r="46"></circle>
+            <circle class="slot" data-slot="4" cx="425.353" cy="302.105" r="46"></circle>
+            <circle class="slot" data-slot="5" cx="706.590" cy="302.105" r="46"></circle>
+            <circle class="slot" data-slot="6" cx="987.830" cy="302.105" r="46"></circle>
 
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-        <button class="lp-clover" type="button" aria-label="네잎클로버"></button>
-      </div>
+            <!-- 3줄(하단 4칸) -->
+            <circle class="slot" data-slot="7" cx="144.118" cy="501.180" r="46"></circle>
+            <circle class="slot" data-slot="8" cx="425.353" cy="501.180" r="46"></circle>
+            <circle class="slot" data-slot="9" cx="706.590" cy="501.180" r="46"></circle>
+            <circle class="slot" data-slot="10" cx="987.830" cy="501.180" r="46"></circle>
+          </g>
+        </g>
 
-      <div class="lp-help" id="lpHelp">네잎클로버를 눌러 오늘의 행운을 뽑아보세요!</div>
-      <div class="lp-badges">
-        <span>🎉 5,000원 이상이면 색/애니메이션 다르게</span>
-        <span>💎 10,000원 당첨 시 전용 이펙트</span>
-      </div>
+        <defs>
+          <clipPath id="boardClip">
+            <rect width="1131.94" height="604.22" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
     </div>
-  </div>
 
-  <!-- ✅ 모달 -->
+    <!-- UI 레이어 -->
+    <div class="lp-ui">
+      <h1 class="lp-title">오늘의 행운을 뽑아보세요!!</h1>
+      <p class="lp-sub">최대 <b>1만원</b> 당첨!</p>
+
+      <!-- ✅ JS가 슬롯 좌표에 맞춰 버튼 10개를 배치 -->
+      <div id="cloverLayer" class="lp-clover-layer"></div>
+
+      <p class="lp-help" id="lpHelp">클로버를 눌러 오늘의 행운을 확인하세요 🍀</p>
+    </div>
+  </main>
+
+  <!-- 모달 -->
   <div class="lp-modal" id="lpModal" aria-hidden="true">
-    <div class="lp-modal__dim" data-close></div>
-    <div class="lp-modal__card" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle">
-      <div class="lp-modal__title" id="lpModalTitle">짠! 축하드립니다!</div>
-      <div class="lp-modal__desc">
-        적립금 <b class="lp-modal__amount" id="lpModalAmount">0원</b> 당첨!
-      </div>
-      <div class="lp-modal__fineprint">
-        해당 적립금은 30일 이내에 사용 가능하며,<br/>
-        마이페이지에서 확인 가능합니다!
-      </div>
-      <button class="lp-modal__btn" type="button" data-close>확인</button>
+    <div class="lp-modal__dim" data-close="true"></div>
+    <div class="lp-modal__card" role="dialog" aria-modal="true">
+      <div class="lp-modal__title">오늘의 행운!</div>
+      <div class="lp-modal__desc">적립금 <span class="lp-modal__amount" id="lpModalAmount">0원</span> 당첨 🎉</div>
+      <div class="lp-modal__fineprint">마이페이지에서 확인 가능합니다.</div>
+      <button class="lp-modal__btn" id="lpModalBtn" type="button">확인</button>
     </div>
   </div>
 
-</div>
-
-<script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
