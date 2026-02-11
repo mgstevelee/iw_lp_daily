@@ -79,8 +79,8 @@ body{
 /* 버튼 */
 .lp-clover{
   position:absolute;
-  width: clamp(126px, 13vw, 260px);
-  height: clamp(126px, 13vw, 260px);
+  width: clamp(66px, 13vw, 260px);
+  height: clamp(66px, 13vw, 260px);
   transform: translate(-50%, -50%);
   pointer-events:auto;
 
