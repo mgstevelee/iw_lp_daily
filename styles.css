@@ -2,58 +2,42 @@
   --pink:#FF86B4;
   --blue:#74D0FF;
   --gold:#FFD54F;
-
-  /* ✅ 데스크탑 보드/오버레이 미세 조정용 변수 */
-  --board-top: 54%;          /* 보드 중심 Y */
-  --board-scale: 0.88;       /* 보드 전체 스케일 (0.84~0.92 추천) */
-  --overlay-left: 20%;       /* 클로버 영역 X 시작 */
-  --overlay-top: 24%;        /* 클로버 영역 Y 시작 */
-  --overlay-width: 60%;      /* 클로버 영역 너비 */
-  --overlay-height: 60%;     /* 클로버 영역 높이 */
 }
 
-*{box-sizing:border-box}
+*{ box-sizing:border-box; }
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;
-  background:#4b3323; /* (스크린샷처럼 브라우저 배경 어두운 톤이면 보기 좋음) */
+  background:#4b3323;
 }
 
-/* ✅ 전체 씬: 데스크탑 기본은 “보드 비율” */
+/* ✅ 1920x1080(16:9) 디자인 캔버스 */
+/* - 화면이 작으면 비율 유지한 채로 축소
+   - 화면이 크면 최대 1920x1080까지만 */
 .lp-scene{
-  width:min(1200px, 96vw);
-  margin:24px auto;
   position:relative;
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
+  width:min(1920px, 100vw);
+  height:min(1080px, 100vh);
+  aspect-ratio:16/9;
 
-  aspect-ratio: 1132 / 605; /* 데스크탑용 */
+  margin:0 auto;
+  background:#fff;
+  overflow:hidden;
 }
 
-/* ✅ 배경 레이어 */
+/* 레이어 */
 .lp-bg{ position:absolute; inset:0; z-index:1; }
 .lp-ui{ position:absolute; inset:0; z-index:2; }
 
-/* =========================
-   ✅ 보드: 클로버 기준으로 맞추기
-   - 중앙정렬 유지
-   - scale로 미세조정
-   ========================= */
+/* 보드 */
 .lp-board{
   position:absolute;
   left:50%;
-  top: var(--board-top);
-  transform:translate(-50%,-50%) scale(var(--board-scale));
-  transform-origin:center;
-
-  /* 기존 92%는 너무 커질 수 있어서,
-     스케일 조정이 잘 먹도록 100% 기준으로 */
-  width:100%;
+  top:56%;                      /* 🔥 아래로 내림 (기존 52~58% -> 60%) */
+  transform:translate(-50%,-50%);
+  width:74%;                    /* 🔥 92%의 약 80% => 74% (보드 20% 축소) */
   height:auto;
-
   pointer-events:none;
-  z-index:1;
 }
 
 /* 나무 */
@@ -72,9 +56,9 @@ body{
   margin:0;
   position:absolute;
   left:50%;
-  top:6%;
+  top:4%;
   transform:translateX(-50%);
-  font-size:clamp(22px, 2.6vw, 34px);
+  font-size: clamp(18px, 5vw, 28px);
   font-weight:900;
   color:#111;
   text-align:center;
@@ -83,80 +67,54 @@ body{
 .lp-sub{
   position:absolute;
   left:50%;
-  top:14%;
+  top:10%;
   transform:translateX(-50%);
-  font-size:clamp(14px, 1.6vw, 18px);
+  font-size:clamp(16px, 1.6vw, 24px);
   color:#555;
 }
-.lp-sub b{ color: #111; }
+.lp-sub b{ color:#111; }
 
-/* =========================
-   ✅ 클로버 오버레이: 보드 “안쪽”에 딱 맞추는 영역
-   - 기존 값(18/20/64/66)은 보드가 커보이면 어긋남
-   - 변수로 컨트롤 가능하게 변경
-   ========================= */
-.lp-overlay{
+
+/* ✅ 클로버 레이어: SVG와 1:1로 겹침 */
+/* 기존 inset:0 지우고 */
+.lp-clover-layer{
   position:absolute;
-  left: var(--overlay-left);
-  top: var(--overlay-top);
-  width: var(--overlay-width);
-  height: var(--overlay-height);
-  z-index:2;
+  pointer-events:none;
+  z-index:10;
 }
 
-/* ✅ 클로버 그리드: 3줄(2/4/4) */
-.lp-clover-grid{
-  width:100%;
-  height:100%;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
-  /* ✅ 두번째 스샷처럼 좀 더 “칸 중앙”에 모이게 */
-  gap: clamp(10px, 1.8vw, 20px);
-  padding: clamp(10px, 2vw, 22px);
-
-  place-items:center;
-}
-
-/* 첫 줄 2개 가운데 */
-.lp-clover-grid > .lp-clover:nth-child(1){ grid-column:2; grid-row:1; }
-.lp-clover-grid > .lp-clover:nth-child(2){ grid-column:3; grid-row:1; }
-
-/* 2줄차 4개 */
-.lp-clover-grid > .lp-clover:nth-child(3){ grid-column:1; grid-row:2; }
-.lp-clover-grid > .lp-clover:nth-child(4){ grid-column:2; grid-row:2; }
-.lp-clover-grid > .lp-clover:nth-child(5){ grid-column:3; grid-row:2; }
-.lp-clover-grid > .lp-clover:nth-child(6){ grid-column:4; grid-row:2; }
-
-/* 3줄차 4개 */
-.lp-clover-grid > .lp-clover:nth-child(7){ grid-column:1; grid-row:3; }
-.lp-clover-grid > .lp-clover:nth-child(8){ grid-column:2; grid-row:3; }
-.lp-clover-grid > .lp-clover:nth-child(9){ grid-column:3; grid-row:3; }
-.lp-clover-grid > .lp-clover:nth-child(10){ grid-column:4; grid-row:3; }
-
-/* ✅ 버튼 */
+/* 버튼 */
 .lp-clover{
-  width: clamp(54px, 7vw, 110px);
-  height: clamp(54px, 7vw, 110px);
+  position:absolute;
+  width: clamp(63px, 6.5vw, 130px);
+  height: clamp(63px, 6.5vw, 130px);
+  transform: translate(-50%, -50%);
+  pointer-events:auto;
+
   border:0;
   background:transparent;
   padding:0;
   cursor:pointer;
-  position:relative;
   transform-origin:50% 50%;
 }
 
-.lp-clover .clover-wrap{width:100%;height:100%;display:block}
-.lp-clover svg{width:100%;height:100%;display:block;fill:var(--blue);transition:fill .2s ease}
+.lp-clover .clover-wrap{ width:100%; height:100%; display:block; }
+.lp-clover svg{
+  width:100%;
+  height:100%;
+  display:block;
+  fill:var(--blue);
+  transition:fill .2s ease;
+  transform-origin:50% 50%;
+}
 
-/* 회전 애니메이션 */
+/* spin은 버튼에만 */
 .lp-clover.spin{
   animation: spinStop 3s cubic-bezier(.12,.72,.08,1) forwards;
 }
 @keyframes spinStop{
-  0%{ transform: rotate(0deg); }
-  100%{ transform: rotate(2520deg); }
+  0%{ transform: translate(-50%,-50%) rotate(0deg); }
+  100%{ transform: translate(-50%,-50%) rotate(2520deg); }
 }
 
 /* 당첨 */
@@ -168,19 +126,20 @@ body{
   display:grid; place-items:center;
   color:#fff;
   font-weight:900;
-  font-size: clamp(16px, 2vw, 26px);
+  font-size: clamp(14px, 1.6vw, 28px);
   text-shadow:0 2px 0 rgba(0,0,0,.08);
+  pointer-events:none;
 }
 
-/* ✅ big-win(5천 이상) + jackpot(1만원도 동일) */
+/* big-win */
 .lp-clover.big-win svg{ fill: var(--gold); }
 .lp-clover.big-win{
   animation: bigWinPulse .7s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 14px rgba(255,215,64,.85));
 }
 @keyframes bigWinPulse{
-  0%{ transform: scale(1) rotate(0deg); }
-  100%{ transform: scale(1.1) rotate(3deg); }
+  0%{ transform: translate(-50%,-50%) scale(1) rotate(0deg); }
+  100%{ transform: translate(-50%,-50%) scale(1.1) rotate(3deg); }
 }
 .lp-clover.big-win .amount{
   color:#fff3b0;
@@ -191,29 +150,15 @@ body{
 .lp-help{
   position:absolute;
   left:50%;
-  bottom:6%;
+  bottom:1%;                  /* 🔥 보드와 안 겹치게 더 아래로 */
   transform:translateX(-50%);
   width:100%;
   text-align:center;
-  font-size: clamp(12px, 1.6vw, 16px);
+  font-size:clamp(16px, 1.2vw, 24px);
   color:#777;
 }
 
-.lp-badges{
-  position:absolute;
-  left:50%;
-  bottom:1.6%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:center;
-  width:100%;
-  font-size:clamp(11px, 1.4vw, 14px);
-  color:#777;
-}
-
-/* ✅ 모달 */
+/* 모달 */
 .lp-modal{ position:fixed; inset:0; display:none; z-index:9999; }
 .lp-modal.show{ display:block; }
 .lp-modal__dim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
@@ -239,50 +184,50 @@ body{
   background:#fff;
   font-weight:900;
 }
-
 /* =========================
-   ✅ 모바일: 나무를 상단 좌우로,
-   보드를 아래로 내려서 겹침 제거
-   + 모바일용 보드/오버레이 변수 따로
+   ✅ 모바일 최적화
+   - 나무 과대 문제 해결
    ========================= */
 @media (max-width: 700px){
+
+  /* 씬: 세로 길이 확보 */
   .lp-scene{
+    width: 100vw;
+    height: 100vh;
     aspect-ratio: auto;
-    height: min(92vh, 860px);
   }
 
-  /* 나무: 위로 올리고 크기 줄이기 */
+  /* ✅ 나무: "장식"으로만 -> 크기 대폭 축소 */
   .lp-tree{
-    top: 2%;
+    top: 14%;          /* 위에서 조금 내려오게 */
     bottom: auto;
-    height: 36%;
+    height: 38%;       /* 🔥 핵심: 92% -> 38% */
+    max-width: 42vw;   /* 🔥 화면 절반 넘지 않게 */
+    width: auto;
+    opacity: .95;
   }
-  .lp-tree--left{ left: 6%; }
-  .lp-tree--right{ right: 6%; }
+  .lp-tree--left{ left: -6vw; }
+  .lp-tree--right{ right: -6vw; }
 
-  /* 보드: 아래로 */
+  /* ✅ 보드: 모바일에서는 아래쪽에 안정적으로 */
   .lp-board{
-    top: 62%;
-    width: 100%;
-    transform:translate(-50%,-50%) scale(0.92);
+    top: 63%;
+    width: 88%;
   }
 
-  /* 타이틀도 위쪽 */
-  .lp-title{ top: 42%; white-space:normal; }
-  .lp-sub{ top: 49%; }
+  /* 타이틀/서브: 나무와 겹치지 않게 상단 유지 */
+  .lp-title{ top: 5%; font-size: 28px; white-space: normal; }
+  .lp-sub{ top: 9%; }
 
-  /* 오버레이: 보드 안으로 다시 맞춤 */
-  .lp-overlay{
-    left: 16%;
-    top: 54%;
-    width: 68%;
-    height: 34%;
-  }
-
+  /* ✅ help: 더 아래로 */
   .lp-help{
-    bottom: 10%;
+    bottom: 1.2%;
+    font-size: 14px;
   }
-  .lp-badges{
-    bottom: 4%;
+ /* 오늘의 행운을 뽑아보세요~ 크키*/
+    .lp-title{
+    top: 5%;
+    font-size: clamp(18px, 5vw, 24px);
+    white-space: nowrap;
   }
 }
