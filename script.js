@@ -58,6 +58,15 @@ const LS_KEY = 'lpPlayedDate';
    🎲 확률 로직
 ================================= */
 
+
+function pickReward(){
+  const r = Math.random();
+
+  if (r < 0.1) return 1000;  // 50%
+  return 3000;               // 50%
+} 
+
+/*
 function pickReward(){
   const r = Math.random() * 100;
 
@@ -66,7 +75,7 @@ function pickReward(){
   if (r < 99) return 500;
   if (r < 99.7) return 1000;
   return 3000;
-}
+} */
 
 function getCouponCode(amount){
   if (couponMap[amount]) return couponMap[amount][0];
